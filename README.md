@@ -4,6 +4,8 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 
 ## Features
 
+- Sidebar Navigation;
+
 ## Details
 
 - Routes are handled with React Router library;
