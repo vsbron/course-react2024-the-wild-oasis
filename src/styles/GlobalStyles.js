@@ -1,18 +1,6 @@
-/*
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Sono:wght@400;500;600&display=swap"
-  rel="stylesheet"
-/>
-*/
+import { createGlobalStyle } from "styled-components";
 
-/* Colors adapted from https://tailwindcss.com/docs/customizing-colors */
-
+const GlobalStyles = createGlobalStyle`
 :root {
   /* Indigo */
   --color-brand-50: #eef2ff;
@@ -24,18 +12,18 @@
   --color-brand-800: #3730a3;
   --color-brand-900: #312e81;
 
-  /* Grey */
-  --color-grey-0: #fff;
-  --color-grey-50: #f9fafb;
-  --color-grey-100: #f3f4f6;
-  --color-grey-200: #e5e7eb;
-  --color-grey-300: #d1d5db;
-  --color-grey-400: #9ca3af;
-  --color-grey-500: #6b7280;
-  --color-grey-600: #4b5563;
-  --color-grey-700: #374151;
-  --color-grey-800: #1f2937;
-  --color-grey-900: #111827;
+  /* gray */
+  --color-gray-0: #fff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
 
   --color-blue-100: #e0f2fe;
   --color-blue-700: #0369a1;
@@ -85,7 +73,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  color: var(--color-grey-700);
+  color: var(--color-gray-700);
 
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
@@ -111,8 +99,8 @@ button {
 
 select:disabled,
 input:disabled {
-  background-color: var(--color-grey-200);
-  color: var(--color-grey-500);
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-500);
 }
 
 input:focus,
@@ -158,17 +146,17 @@ img {
 /*
 FOR DARK MODE
 
---color-grey-0: #18212f;
---color-grey-50: #111827;
---color-grey-100: #1f2937;
---color-grey-200: #374151;
---color-grey-300: #4b5563;
---color-grey-400: #6b7280;
---color-grey-500: #9ca3af;
---color-grey-600: #d1d5db;
---color-grey-700: #e5e7eb;
---color-grey-800: #f3f4f6;
---color-grey-900: #f9fafb;
+--color-gray-0: #18212f;
+--color-gray-50: #111827;
+--color-gray-100: #1f2937;
+--color-gray-200: #374151;
+--color-gray-300: #4b5563;
+--color-gray-400: #6b7280;
+--color-gray-500: #9ca3af;
+--color-gray-600: #d1d5db;
+--color-gray-700: #e5e7eb;
+--color-gray-800: #f3f4f6;
+--color-gray-900: #f9fafb;
 
 --color-blue-100: #075985;
 --color-blue-700: #e0f2fe;
@@ -194,3 +182,7 @@ FOR DARK MODE
 --image-grayscale: 10%;
 --image-opacity: 90%;
 */
+
+`;
+
+export default GlobalStyles;

@@ -8,4 +8,4 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 
 ## Live version
 
-https://vsbron-course-react2024-the-wild-oasis.netlify.app
+https://vsbron-course-react2024-wild-oasis.netlify.app

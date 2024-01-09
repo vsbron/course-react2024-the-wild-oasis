@@ -1,8 +1,15 @@
+import styled from "styled-components";
+
+import GlobalStyles from "./styles/GlobalStyles";
+
 function App() {
   return (
-    <div>
-      <h1>The Wild Oasis</h1>
-    </div>
+    <>
+      <GlobalStyles />
+      <div>
+        <h1>The Wild Oasis</h1>
+      </div>
+    </>
   );
 }
 
