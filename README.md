@@ -14,6 +14,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 - Styles are handled with Styled Components;
 - State management is handled by React Query;
 - Database is stored at Supabase service;
+- Form handled and validated with React Hook Form;
 
 ## Live version
 
