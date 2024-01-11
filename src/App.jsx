@@ -13,6 +13,7 @@ import Users from "./pages/Users";
 import AppLayout from "./ui/AppLayout";
 
 import GlobalStyles from "./styles/GlobalStyles";
+import { Toaster } from "react-hot-toast";
 
 // Creating the query client with the options for React Query
 const queryClient = new QueryClient({
@@ -51,6 +52,27 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
+
+      <Toaster
+        position="top-center"
+        gutter={12}
+        container={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+            backgroundColor: "var(--color-grey-0)",
+            textColor: "var(--color-grey-700)",
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }

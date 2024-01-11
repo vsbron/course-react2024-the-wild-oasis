@@ -6,6 +6,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 
 - Sidebar Navigation;
 - List of all available cabins;
+- Cabins can be deleted from the app;
 
 ## Details
 
