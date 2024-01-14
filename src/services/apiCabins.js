@@ -18,7 +18,7 @@ export async function getCabins() {
 // Function that queries all the rows from Cabins table database
 // This needs to be permited in Authentication/Policies
 export async function createEditCabin(newCabin, id) {
-  // Checking whether new caboin contains an image url instead of file
+  // Checking whether new cabin contains an image url instead of file
   const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
 
   // Creating new image name. Attaching random prefix and removing all the slashed [/]
@@ -97,7 +97,7 @@ export async function deleteCabin(id) {
   const image = cabinToRemove[0].image?.split("cabin-images/")?.[1];
 
   // Delete the cabin's image from storage of the API
-  const {} = await supabase.storage.from("cabin-images").remove([image]);
+  await supabase.storage.from("cabin-images").remove([image]);
 
   // return data;
   return data;
