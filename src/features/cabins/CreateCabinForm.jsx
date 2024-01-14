@@ -33,7 +33,7 @@ function CreateCabinForm() {
   // Submit handler function that automatically gets data object
   function onSubmit(data) {
     // Calls mutate function with the data
-    mutate(data);
+    mutate({ ...data, image: data.image[0] });
   }
 
   // Error handler function (prits out the errors if there's at least one error)
@@ -105,7 +105,14 @@ function CreateCabinForm() {
       </FormRow>
 
       <FormRow label="Cabin photo">
-        <FileInput id="image" accept="image/*" disabled={isCreating} />
+        <FileInput
+          id="image"
+          accept="image/*"
+          disabled={isCreating}
+          {...register("image", {
+            required: "This field is required",
+          })}
+        />
       </FormRow>
 
       {/* type is an HTML attribute! */}
