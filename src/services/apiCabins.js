@@ -17,20 +17,36 @@ export async function getCabins() {
 
 // Function that queries all the rows from Cabins table database
 // This needs to be permited in Authentication/Policies
-export async function createCabin(newCabin) {
+export async function createEditCabin(newCabin, id) {
+  // Checking whether new caboin contains an image url instead of file
+  const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
+
   // Creating new image name. Attaching random prefix and removing all the slashed [/]
   const imageName = `${Math.random()}-${newCabin.image.name}`.replaceAll(
     "/",
     ""
   );
 
-  // Building an URL for the image from Supabase
-  const imagePath = `${supabaseUrl}/storage/v1/object/public/cabin-images/${imageName}`;
+  // Building an URL for the image from Supabase (if we don't have it yet (Edit mode)
+  const imagePath = hasImagePath
+    ? newCabin.image
+    : `${supabaseUrl}/storage/v1/object/public/cabin-images/${imageName}`;
 
-  // Code from Supabase/API Docs/cabins
-  const { data, error } = await supabase
-    .from("cabins")
-    .insert([{ ...newCabin, image: imagePath }]);
+  //// 1) Create / Edit a Cabin
+
+  // Stroring a part of the query as separate value
+  let query = supabase.from("cabins");
+
+  // A) Creating a cabin
+  // Creating new cabin if we're in new cabin session (id is null)
+  if (!id) query = query.insert([{ ...newCabin, image: imagePath }]);
+
+  // B) Editing a cabin
+  // Editing a cabin if we're in edit cabin session (id is NOT null)
+  if (id) query = query.update({ ...newCabin, image: imagePath }).eq("id", id);
+
+  // AB) Awaiting the query from async function
+  const { data, error } = await query.select();
 
   // If error, throws an error
   if (error) {
@@ -38,7 +54,7 @@ export async function createCabin(newCabin) {
     throw new Error("Cabin could not be added");
   }
 
-  // Uploading image to the Supabase storage
+  //// 2) Uploading image to the Supabase storage
   const { error: storageError } = await supabase.storage
     .from("cabin-images")
     .upload(`${imageName}`, newCabin.image, {
