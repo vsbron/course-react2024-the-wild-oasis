@@ -79,7 +79,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
           id="name"
           disabled={isWorking}
           {...register("name", {
-            required: "This field is required",
+            required: "Please enter the cabin's name",
           })}
         />
       </FormRow>
@@ -89,7 +89,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
           id="maxCapacity"
           disabled={isWorking}
           {...register("maxCapacity", {
-            required: "This field is required",
+            required: "Please provide the capacity",
             min: { value: 1, message: "Capacity should be at least 1" },
           })}
         />
@@ -100,7 +100,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
           id="regularPrice"
           disabled={isWorking}
           {...register("regularPrice", {
-            required: "This field is required",
+            required: "Please provide the price",
             min: { value: 1, message: "Capacity should be at least 1" },
           })}
         />
@@ -112,7 +112,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
           defaultValue={0}
           disabled={isWorking}
           {...register("discount", {
-            required: "This field is required",
+            required: "Please provide the discount",
             validate: (value) =>
               Number(value) <= Number(getValues().regularPrice) ||
               "Discount should be less than regular price",
@@ -126,17 +126,19 @@ function CreateCabinForm({ cabinToEdit = {} }) {
         <Textarea
           id="description"
           disabled={isWorking}
-          {...register("description", { required: "This field is required" })}
+          {...register("description", {
+            required: "Please enter a short description",
+          })}
         />
       </FormRow>
       {/* Photo upload input, required only if we add a new cabin */}
-      <FormRow label="Cabin photo">
+      <FormRow label="Cabin photo" error={errors?.image?.message}>
         <FileInput
           id="image"
           accept="image/*"
           disabled={isWorking}
           {...register("image", {
-            required: isEditSession ? false : "This field is required",
+            required: isEditSession ? false : "Please provide an image",
           })}
         />
       </FormRow>
