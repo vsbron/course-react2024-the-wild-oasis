@@ -1,5 +1,6 @@
 import supabase from "./supabase";
 
+// Getting the settings from the API
 export async function getSettings() {
   const { data, error } = await supabase.from("settings").select("*").single();
 

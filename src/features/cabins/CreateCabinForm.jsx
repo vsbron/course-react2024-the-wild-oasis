@@ -24,8 +24,8 @@ function CreateCabinForm({ cabinToEdit = {} }) {
   const { errors } = formState; // Getting the errors from the form, if there's any
 
   // Getting the isCreating/isEditing status and mutate create/edit function from the Custom Hook
-  const {isCreating, createCabin} = useCreateCabin();
-  const {isEditing, editCabin} = useEditCabin();
+  const { isCreating, createCabin } = useCreateCabin();
+  const { isEditing, editCabin } = useEditCabin();
 
   // Submit handler function that automatically gets data object
   function onSubmit(data) {
@@ -33,8 +33,11 @@ function CreateCabinForm({ cabinToEdit = {} }) {
     const image = typeof data.image === "string" ? data.image : data.image[0];
 
     if (isEditSession)
-      editCabin({ newCabinData: { ...data, image }, id: editId }, {onSuccess: () => reset()});
-    else createCabin({ ...data, image: image }, {onSuccess: () => reset()});
+      editCabin(
+        { newCabinData: { ...data, image }, id: editId },
+        { onSuccess: () => reset() }
+      );
+    else createCabin({ ...data, image: image }, { onSuccess: () => reset() });
   }
 
   // Error handler function (prits out the errors if there's at least one error)
