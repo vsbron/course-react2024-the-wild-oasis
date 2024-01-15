@@ -1,6 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
+import useCabins from "./useCabins";
 
-import { getCabins } from "../../services/apiCabins";
 import Spinner from "../../ui/Spinner";
 
 import styled from "styled-components";
@@ -31,14 +30,8 @@ const TableHeader = styled.header`
 `;
 
 function CabinTable() {
-  const {
-    isLoading,
-    data: cabins,
-    error,
-  } = useQuery({
-    queryKey: ["cabins"],
-    queryFn: getCabins,
-  });
+  // Getting the isLoading state and the data from Custom hook
+  const { isLoading, cabins } = useCabins();
 
   // Guard clause, if data is still loading display Loading spinner
   if (isLoading) return <Spinner />;
