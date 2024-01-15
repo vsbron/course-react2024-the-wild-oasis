@@ -82,12 +82,6 @@ export async function createEditCabin(newCabin, id) {
 // Function that deletes the row by ID from Cabins table database
 // This needs to be permited in Authentication/Policies
 export async function deleteCabin(id) {
-  // Getting the cabin we need to remove
-  let { data: cabinToRemove } = await supabase
-    .from("cabins")
-    .select("*")
-    .eq("id", id);
-
   // Code from Supabase/API Docs/cabins to delete the cabin from Database
   const { data, error } = await supabase.from("cabins").delete().eq("id", id);
 
@@ -96,12 +90,6 @@ export async function deleteCabin(id) {
     console.error(error);
     throw new Error("Cabin could not be deleted");
   }
-
-  // Getting the filename of the image from the deleted cabin
-  const image = cabinToRemove[0].image?.split("cabin-images/")?.[1];
-
-  // Delete the cabin's image from storage of the API
-  await supabase.storage.from("cabin-images").remove([image]);
 
   // return data;
   return data;
