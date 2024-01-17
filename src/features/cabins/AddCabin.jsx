@@ -3,7 +3,7 @@ import CreateCabinForm from "./CreateCabinForm";
 import Button from "../../ui/Button";
 import Modal from "../../ui/Modal";
 
-function AddCabin({ children }) {
+function AddCabin() {
   return (
     <Modal>
       <Modal.Open opens="cabin-form">
