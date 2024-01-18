@@ -7,7 +7,6 @@ const StyledTable = styled.div`
   font-size: 1.4rem;
   background-color: var(--color-grey-0);
   border-radius: 7px;
-  overflow: hidden;
 `;
 
 const CommonRow = styled.div`
@@ -60,8 +59,11 @@ const Empty = styled.p`
   margin: 2.4rem;
 `;
 
+// Compound Component Pattern
+// 1) Create Context
 const TableContext = createContext();
 
+// 2) Create Parent Component
 function Table({ columns, children }) {
   return (
     <TableContext.Provider value={{ columns }}>
@@ -70,6 +72,7 @@ function Table({ columns, children }) {
   );
 }
 
+// 3) Create child components to help implementing the common tasks
 function Header({ children }) {
   // Get the columns from Context API
   const { columns } = useContext(TableContext);
@@ -93,9 +96,10 @@ function Row({ children }) {
 
 // Body of the table that renders the data using Render Prop Pattern
 function Body({ data, render }) {
-  return data.map(render);
+  return <StyledBody>{data.map(render)}</StyledBody>;
 }
 
+// 4) Add child components as properties to the parent component
 Table.Header = Header;
 Table.Row = Row;
 Table.Body = Body;
