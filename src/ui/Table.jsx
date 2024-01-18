@@ -91,7 +91,10 @@ function Row({ children }) {
   );
 }
 
-function Body({ children }) {}
+// Body of the table that renders the data using Render Prop Pattern
+function Body({ data, render }) {
+  return data.map(render);
+}
 
 Table.Header = Header;
 Table.Row = Row;
