@@ -18,11 +18,12 @@ function CabinTable() {
   // Guard clause, if data is still loading display Loading spinner
   if (isLoading) return <Spinner />;
 
-  // Getting the filter value from the URL state
+  // Getting the Filter value from the URL state
   const filterValue = searchParams.get("discount") || "all";
 
   // Setting the new cabins array but this time, with filters
   let filteredCabins;
+
   // Displaying all cabins
   if (filterValue === "all") filteredCabins = cabins;
   // Displaying cabins with no discount
@@ -30,6 +31,15 @@ function CabinTable() {
     filteredCabins = cabins.filter((cabin) => cabin.discount === 0);
   // Displaying cabins with discount
   else filteredCabins = cabins.filter((cabin) => cabin.discount > 0);
+
+  // Getting the Sort value from the URL state
+  const sortBy = searchParams.get("sortBy") || "startDate-asc";
+
+  const [field, direction] = sortBy.split("-");
+  const modifier = direction === "asc" ? 1 : -1;
+  const sortedCabins = filteredCabins.sort(
+    (a, b) => (a[field] - b[field]) * modifier
+  );
 
   return (
     <Menus>
@@ -43,7 +53,7 @@ function CabinTable() {
           <div></div>
         </Table.Header>
         <Table.Body
-          data={filteredCabins}
+          data={sortedCabins}
           render={(cabin) => <CabinRow cabin={cabin} key={cabin.id} />}
         />
       </Table>
