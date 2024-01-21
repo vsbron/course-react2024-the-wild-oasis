@@ -7,6 +7,7 @@ import CabinRow from "./CabinRow";
 import Spinner from "../../ui/Spinner";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
+import Empty from "../../ui/Empty";
 
 function CabinTable() {
   // Getting the isLoading state and the data from Custom hook
@@ -17,6 +18,9 @@ function CabinTable() {
 
   // Guard clause, if data is still loading display Loading spinner
   if (isLoading) return <Spinner />;
+
+  // Display "Empty message" if there's no cabins
+  if (!cabins.length) return <Empty resourceName="cabins" />;
 
   // Getting the Filter value from the URL state
   const filterValue = searchParams.get("discount") || "all";
@@ -35,8 +39,10 @@ function CabinTable() {
   // Getting the Sort value from the URL state
   const sortBy = searchParams.get("sortBy") || "startDate-asc";
 
-  const [field, direction] = sortBy.split("-");
-  const modifier = direction === "asc" ? 1 : -1;
+  const [field, direction] = sortBy.split("-"); // Separating the URL sort state
+  const modifier = direction === "asc" ? 1 : -1; // Creating modifier to change the direction
+
+  // Sorting the filtered cabins
   const sortedCabins = filteredCabins.sort(
     (a, b) => (a[field] - b[field]) * modifier
   );

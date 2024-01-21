@@ -1,9 +1,20 @@
 import BookingRow from "./BookingRow";
-import Table from "../../ui/Table";
+import useBookings from "./useBookings";
+
+import Empty from "../../ui/Empty";
 import Menus from "../../ui/Menus";
+import Spinner from "../../ui/Spinner";
+import Table from "../../ui/Table";
 
 function BookingTable() {
-  const bookings = [];
+  // Getting the isLoading state and the data from Custom hook
+  const { isLoading, bookings } = useBookings();
+
+  // Guard clause, if data is still loading display Loading spinner
+  if (isLoading) return <Spinner />;
+
+  // Display "Empty message" if there's no booking
+  if (!bookings.length) return <Empty resourceName="bookings" />;
 
   return (
     <Menus>
