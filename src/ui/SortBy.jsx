@@ -6,7 +6,7 @@ function SortBy({ options }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // Getting the currently selected source method
-  const sortBy = searchParams.get("sortBy");
+  const sortBy = searchParams.get("sortBy") || "createdAt-asc";
 
   // Sort select element change handler
   function handleChange(e) {
