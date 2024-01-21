@@ -5,7 +5,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 ## Features
 
 - Sidebar Navigation;
-- List of all available cabins;
+- List of all available cabins that can be filtered out based on available discounts;
 - New cabins can be added to the list;
 - Existing cabins can be duplicated, edited or deleted entirely;
 - Custom images can be uploaded while adding a new Cabin;
@@ -18,7 +18,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 - State management is handled by React Query;
 - Database is stored at Supabase service;
 - Form handled and validated with React Hook Form;
-- Add/Edit Cabin form is built as a Modal using Compound Component Pattern;
+- Add/Edit/Delete Cabin form is built as a Modal using Compound Component Pattern;
 
 ## Live version
 
