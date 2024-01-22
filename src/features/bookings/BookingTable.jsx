@@ -9,7 +9,7 @@ import Pagination from "../../ui/Pagination";
 
 function BookingTable() {
   // Getting the isLoading state and the data from Custom hook
-  const { isLoading, bookings } = useBookings();
+  const { isLoading, bookings, count } = useBookings();
 
   // Guard clause, if data is still loading display Loading spinner
   if (isLoading) return <Spinner />;
@@ -37,7 +37,7 @@ function BookingTable() {
         />
 
         <Table.Footer>
-          <Pagination count={5} />
+          <Pagination count={count} />
         </Table.Footer>
       </Table>
     </Menus>
