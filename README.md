@@ -19,6 +19,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 - State management is handled by React Query;
 - Database is stored at Supabase service;
 - Form handled and validated with React Hook Form;
+- Data lists are divided and prefetched by React Query library;
 - Add/Edit/Delete Cabin form is built as a Modal using Compound Component Pattern;
 
 ## Live version
