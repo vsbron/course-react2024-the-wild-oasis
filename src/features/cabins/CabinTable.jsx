@@ -27,7 +27,6 @@ function CabinTable() {
 
   // Setting the new cabins array but this time, with filters
   let filteredCabins;
-
   // Displaying all cabins
   if (filterValue === "all") filteredCabins = cabins;
   // Displaying cabins with no discount
