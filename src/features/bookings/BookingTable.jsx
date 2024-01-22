@@ -5,6 +5,7 @@ import Empty from "../../ui/Empty";
 import Menus from "../../ui/Menus";
 import Spinner from "../../ui/Spinner";
 import Table from "../../ui/Table";
+import Pagination from "../../ui/Pagination";
 
 function BookingTable() {
   // Getting the isLoading state and the data from Custom hook
@@ -34,6 +35,10 @@ function BookingTable() {
             <BookingRow key={booking.id} booking={booking} />
           )}
         />
+
+        <Table.Footer>
+          <Pagination count={5} />
+        </Table.Footer>
       </Table>
     </Menus>
   );
