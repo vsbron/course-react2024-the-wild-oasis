@@ -12,8 +12,12 @@ function useCheckin() {
   // Edit booking
   // Getting isLoading state and mutate function from useMutation hook
   const { isLoading: isCheckingIn, mutate: checkin } = useMutation({
-    mutationFn: (bookingId) =>
-      updateBooking(bookingId, { status: "checked-in", isPaid: true }),
+    mutationFn: ({ bookingId, breakfast }) =>
+      updateBooking(bookingId, {
+        status: "checked-in",
+        isPaid: true,
+        ...breakfast,
+      }),
     onSuccess: (data) => {
       toast.success(`Booking #${data.id} successfully checked in`);
       // Invalidating all the active queries
