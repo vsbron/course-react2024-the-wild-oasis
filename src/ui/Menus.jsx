@@ -64,6 +64,10 @@ const StyledButton = styled.button`
     color: var(--color-grey-400);
     transition: all 0.3s;
   }
+
+  & span {
+    white-space: nowrap;
+  }
 `;
 
 // Compound Component Pattern

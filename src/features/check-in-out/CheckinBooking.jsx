@@ -1,13 +1,16 @@
 import styled from "styled-components";
-import BookingDataBox from "../../features/bookings/BookingDataBox";
-
-import Row from "../../ui/Row";
-import Heading from "../../ui/Heading";
-import ButtonGroup from "../../ui/ButtonGroup";
-import Button from "../../ui/Button";
-import ButtonText from "../../ui/ButtonText";
 
 import { useMoveBack } from "../../hooks/useMoveBack";
+
+import useBooking from "../bookings/useBooking";
+import BookingDataBox from "../bookings/BookingDataBox";
+
+import Button from "../../ui/Button";
+import ButtonGroup from "../../ui/ButtonGroup";
+import ButtonText from "../../ui/ButtonText";
+import Heading from "../../ui/Heading";
+import Row from "../../ui/Row";
+import Spinner from "../../ui/Spinner";
 
 const Box = styled.div`
   /* Box */
@@ -18,9 +21,13 @@ const Box = styled.div`
 `;
 
 function CheckinBooking() {
+  // Getting the booking and the status from the URL
+  const { booking, isLoading } = useBooking();
+
+  // Getting the moving back link and navigate function from hooks
   const moveBack = useMoveBack();
 
-  const booking = {};
+  if (isLoading) return <Spinner />;
 
   const {
     id: bookingId,
