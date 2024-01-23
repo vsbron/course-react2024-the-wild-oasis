@@ -11,6 +11,8 @@ import ButtonText from "../../ui/ButtonText";
 import Heading from "../../ui/Heading";
 import Row from "../../ui/Row";
 import Spinner from "../../ui/Spinner";
+import { useEffect, useState } from "react";
+import Checkbox from "../../ui/Checkbox";
 
 const Box = styled.div`
   /* Box */
@@ -21,8 +23,16 @@ const Box = styled.div`
 `;
 
 function CheckinBooking() {
+  // Setting the state form payment confirmation
+  const [confirmPaid, setConfirmPaid] = useState(false);
+
   // Getting the booking and the status from the URL
   const { booking, isLoading } = useBooking();
+
+  // Use effect for changing the state
+  useEffect(() => {
+    setConfirmPaid(booking?.isPaid || false);
+  }, [booking]);
 
   // Getting the moving back link and navigate function from hooks
   const moveBack = useMoveBack();
@@ -48,9 +58,20 @@ function CheckinBooking() {
       </Row>
 
       <BookingDataBox booking={booking} />
-
+      <Box>
+        <Checkbox
+          checked={confirmPaid}
+          onChange={() => setConfirmPaid((confirm) => !confirm)}
+          disabled={booking?.isPaid && confirmPaid}
+          id="confirm"
+        >
+          I confirm that {guests.fullName} has paid the total amount
+        </Checkbox>
+      </Box>
       <ButtonGroup>
-        <Button onClick={handleCheckin}>Check in booking #{bookingId}</Button>
+        <Button onClick={handleCheckin} disabled={!confirmPaid}>
+          Check in booking #{bookingId}
+        </Button>
         <Button variation="secondary" onClick={moveBack}>
           Back
         </Button>
