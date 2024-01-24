@@ -14,6 +14,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 - Booking page with all the details;
 - Check-in page where the booking can be confirmed and checked in (+also Breakfast can be added for additional price);
 - Check-out option from the main list and Booking page;
+- Booking can be deleted from the Bookings list or Booking page;
 
 ### Cabins
 
