@@ -1,5 +1,5 @@
-import useSettings from "./useSettings";
-import useUpdateSetting from "./useUpdateSetting";
+import { useSettings } from "./useSettings";
+import { useUpdateSetting } from "./useUpdateSetting";
 
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";

@@ -1,10 +1,11 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { getBookings } from "../../services/apiBookings";
+
 import { PAGE_SIZE } from "../../utils/constants";
 
-function useBookings() {
+export function useBookings() {
   // Getting the query client for pre-fetching
   const queryClient = useQueryClient();
 
@@ -61,5 +62,3 @@ function useBookings() {
   // Return the data
   return { isLoading, error, bookings, count };
 }
-
-export default useBookings;

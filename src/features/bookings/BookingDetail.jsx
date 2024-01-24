@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-import useBooking from "./useBooking";
-import useCheckout from "./useCheckout";
+import { useBooking } from "./useBooking";
+import { useCheckout } from "./useCheckout";
 import { useMoveBack } from "../../hooks/useMoveBack";
 
 import BookingDataBox from "./BookingDataBox";

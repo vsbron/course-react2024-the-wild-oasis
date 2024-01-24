@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 import { deleteCabin as deleteCabinApi } from "../../services/apiCabins";
 
-function useDeleteCabin() {
+export function useDeleteCabin() {
   // Getting the Query client by calling hook
   const queryClient = useQueryClient();
 
@@ -21,5 +21,3 @@ function useDeleteCabin() {
 
   return { isDeleting, deleteCabin };
 }
-
-export default useDeleteCabin;

@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { updateBooking } from "../../services/apiBookings";
 import { useNavigate } from "react-router-dom";
 
-function useCheckin() {
+export function useCheckin() {
   // Getting the Query client and navigate functions from the hooks
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -29,5 +29,3 @@ function useCheckin() {
 
   return { isCheckingIn, checkin };
 }
-
-export default useCheckin;

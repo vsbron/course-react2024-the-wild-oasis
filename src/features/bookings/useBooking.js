@@ -19,5 +19,3 @@ export function useBooking() {
 
   return { isLoading, error, booking };
 }
-
-export default useBooking;

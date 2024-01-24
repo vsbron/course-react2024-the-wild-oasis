@@ -1,13 +1,13 @@
 import { useSearchParams } from "react-router-dom";
 
-import useCabins from "./useCabins";
-
-import CabinRow from "./CabinRow";
+import { useCabins } from "./useCabins";
 
 import Spinner from "../../ui/Spinner";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import Empty from "../../ui/Empty";
+
+import CabinRow from "./CabinRow";
 
 function CabinTable() {
   // Getting the isLoading state and the data from Custom hook

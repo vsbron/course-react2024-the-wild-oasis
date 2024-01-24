@@ -1,11 +1,12 @@
-import BookingRow from "./BookingRow";
-import useBookings from "./useBookings";
+import { useBookings } from "./useBookings";
 
 import Empty from "../../ui/Empty";
 import Menus from "../../ui/Menus";
 import Spinner from "../../ui/Spinner";
 import Table from "../../ui/Table";
 import Pagination from "../../ui/Pagination";
+
+import BookingRow from "./BookingRow";
 
 function BookingTable() {
   // Getting the isLoading state and the data from Custom hook

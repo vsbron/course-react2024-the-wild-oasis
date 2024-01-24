@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 import { updateBooking } from "../../services/apiBookings";
 
-function useCheckout() {
+export function useCheckout() {
   // Getting the Query client and navigate functions from the hooks
   const queryClient = useQueryClient();
 
@@ -24,5 +24,3 @@ function useCheckout() {
 
   return { isCheckingOut, checkout };
 }
-
-export default useCheckout;
