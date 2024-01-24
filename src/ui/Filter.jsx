@@ -44,7 +44,13 @@ function Filter({ filterField, options }) {
 
   // Click handler that updates the URL with the value
   function handleClick(value) {
+    // Adding the filter data to the searchParams
     searchParams.set(filterField, value);
+
+    // Resetting the page to 1 after a filter is applied
+    if (searchParams.get("page")) searchParams.set("page", 1);
+
+    // Updating the URL
     setSearchParams(searchParams);
   }
 
