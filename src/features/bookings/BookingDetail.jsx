@@ -1,17 +1,18 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
+import useBooking from "./useBooking";
+import useCheckout from "./useCheckout";
+import { useMoveBack } from "../../hooks/useMoveBack";
 
 import BookingDataBox from "./BookingDataBox";
-import Row from "../../ui/Row";
-import Heading from "../../ui/Heading";
-import Tag from "../../ui/Tag";
 import ButtonGroup from "../../ui/ButtonGroup";
 import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
-
-import { useMoveBack } from "../../hooks/useMoveBack";
-import useBooking from "./useBooking";
+import Heading from "../../ui/Heading";
+import Row from "../../ui/Row";
 import Spinner from "../../ui/Spinner";
-import { useNavigate } from "react-router-dom";
+import Tag from "../../ui/Tag";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -20,8 +21,9 @@ const HeadingGroup = styled.div`
 `;
 
 function BookingDetail() {
-  // Getting the booking from custom hook
+  // Getting the data from custom hooks
   const { booking, isLoading } = useBooking();
+  const { checkout, isCheckingOut } = useCheckout();
 
   // Getting the moving back link and navigate function from hooks
   const moveBack = useMoveBack();
@@ -32,8 +34,6 @@ function BookingDetail() {
 
   // Getting the current status form the booking
   const { status, id } = booking;
-
-  console.log(booking);
 
   // List of statues and their colors
   const statusToTagName = {
@@ -57,6 +57,16 @@ function BookingDetail() {
       <ButtonGroup>
         {status === "unconfirmed" && (
           <Button onClick={() => navigate(`/checkin/${id}`)}>Check in</Button>
+        )}
+        {status === "checked-in" && (
+          <Button
+            onClick={() => {
+              checkout(id);
+            }}
+            disabled={isCheckingOut}
+          >
+            Check out
+          </Button>
         )}
         <Button variation="secondary" onClick={moveBack}>
           Back
