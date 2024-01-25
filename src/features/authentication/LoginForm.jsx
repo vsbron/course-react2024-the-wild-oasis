@@ -6,9 +6,11 @@ import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
 
 function LoginForm() {
+  // Setting the state for controlled elements
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // Submit handler
   function handleSubmit() {}
 
   return (

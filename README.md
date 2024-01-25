@@ -4,6 +4,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 
 ## Features
 
+- Login page
 - Sidebar Navigation;
 - All lists can be Filtered and Sorted;
 - Settings page where the app can be adjusted;
