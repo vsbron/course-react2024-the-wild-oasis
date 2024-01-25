@@ -25,7 +25,15 @@ function LoginForm() {
     if (!email || !password) return;
 
     // Logging in using mutation function
-    login({ email, password });
+    login(
+      { email, password },
+      {
+        onSettled: () => {
+          setEmail("");
+          setPassword("");
+        },
+      }
+    );
   }
 
   return (

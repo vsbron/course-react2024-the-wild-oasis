@@ -16,6 +16,7 @@ import Users from "./pages/Users";
 import AppLayout from "./ui/AppLayout";
 
 import GlobalStyles from "./styles/GlobalStyles";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 // Creating the query client with the options for React Query
 const queryClient = new QueryClient({
@@ -41,7 +42,13 @@ function App() {
       {/* Wrapping all the elements in React Router */}
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="bookings" element={<Bookings />} />
