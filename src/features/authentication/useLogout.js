@@ -7,6 +7,7 @@ export function useLogout() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
+  // Getting the mutation function and isLoading state from useMutation hook
   const { mutate: logout, isLoading } = useMutation({
     mutationFn: logoutApi,
     onSuccess: () => {
