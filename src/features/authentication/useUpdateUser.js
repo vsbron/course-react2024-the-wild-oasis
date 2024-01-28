@@ -12,7 +12,7 @@ export function useUpdateUser() {
   const { isLoading: isUpdating, mutate: updateUser } = useMutation({
     mutationFn: ({ password, fullName, avatar }) =>
       updateCurrentUser({ password, fullName, avatar }),
-    onSuccess: () => {
+    onSuccess: ({ user }) => {
       toast.success("User account successfully updated");
 
       // Invalidating "user" query
