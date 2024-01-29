@@ -9,6 +9,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 - Bookings & Cabins lists can be Filtered and Sorted;
 - Settings page where the app can be adjusted;
 - Dark mode for the app (Can be toggled in Header);
+- Main Dashboard page;
 
 ### Users
 
