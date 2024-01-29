@@ -3,9 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { subDays } from "date-fns";
 
-import { getBookingsAfterDate } from "../../services/apiBookings";
+import { getStaysAfterDate } from "../../services/apiBookings";
 
-export function useRecentBookings() {
+export function useRecentStays() {
   // Getting the params from the URL using hook
   const [searchParams] = useSearchParams();
 
@@ -20,18 +20,23 @@ export function useRecentBookings() {
   // Getting the mutation function and isLoading status
   const {
     isLoading,
-    data: bookings,
+    data: stays,
     error,
   } = useQuery({
-    queryFn: () => getBookingsAfterDate(queryDate),
-    queryKey: ["bookings", `last-${numDays}`],
+    queryFn: () => getStaysAfterDate(queryDate),
+    queryKey: ["stays", `last-${numDays}`],
   });
+
+  // Filtering out only the confirmed stays
+  const confirmedStays = stays?.filter(
+    (stay) => stay.status === "checked-in" || stay.status === "checked-out"
+  );
 
   // Error handling
   if (error) {
     console.log("ERROR", error);
-    toast.error("Couldn't get the latest booking data");
+    toast.error("Couldn't get the latest stays data");
   }
 
-  return { isLoading, bookings };
+  return { isLoading, stays, confirmedStays };
 }
