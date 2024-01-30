@@ -14,7 +14,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 
 - Main dashboard page with stats and charts;
 - Basic stats for number of bookings, stays, sales and occupancy rate;
-- Chart graph for total sales;
+- Chart graph for total sales & extra sales;
 - All the data can be filtered;
 
 ### Users
