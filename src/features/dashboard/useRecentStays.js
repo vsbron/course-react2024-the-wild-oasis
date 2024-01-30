@@ -38,5 +38,5 @@ export function useRecentStays() {
     toast.error("Couldn't get the latest stays data");
   }
 
-  return { isLoading, stays, confirmedStays };
+  return { isLoading, stays, confirmedStays, numDays };
 }
