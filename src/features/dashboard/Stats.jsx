@@ -18,7 +18,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
   // 3. Calculate how many checkins there were in chosen period
   const checkins = confirmedStays.length;
 
-  // 4.
+  // 4. Calculating the occupation rate
   const occupation =
     confirmedStays.reduce((acc, cur) => acc + cur.numNights, 0) /
     (numDays * cabinCount);

@@ -6,10 +6,16 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 
 - Header with user's Name and Avatar;
 - Sidebar Navigation;
-- Bookings & Cabins lists can be Filtered and Sorted;
 - Settings page where the app can be adjusted;
 - Dark mode for the app (Can be toggled in Header);
 - Main Dashboard page;
+
+### Dashboard
+
+- Main dashboard page with stats and charts;
+- Basic stats for number of bookings, stays, sales and occupancy rate;
+- Chart graph for total sales;
+- All the data can be filtered;
 
 ### Users
 
@@ -26,6 +32,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 - Check-in page where the booking can be confirmed and checked in (+also Breakfast can be added for additional price);
 - Check-out option from the main list and Booking page;
 - Booking can be deleted from the Bookings list or Booking page;
+- All the bookings data can be filtered and sorted;
 
 ### Cabins
 
@@ -33,6 +40,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 - New cabins can be added to the list;
 - Existing cabins can be duplicated, edited or deleted entirely;
 - Custom images can be uploaded while adding/editing a Cabin;
+- All the cabins data can be filtered and sorted;
 
 ## Details
 
