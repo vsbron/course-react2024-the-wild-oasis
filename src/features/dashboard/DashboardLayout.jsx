@@ -1,12 +1,15 @@
 import { useRecentBookings } from "./useRecentBookings";
 import { useRecentStays } from "./useRecentStays";
 
+import { useCabins } from "../cabins/useCabins";
+
+import DurationChart from "./DurationChart";
+import SalesChart from "./SalesChart";
+import Stats from "./Stats";
+import TodayActivity from "../check-in-out/TodayActivity";
+
 import styled from "styled-components";
 import Spinner from "../../ui/Spinner";
-import Stats from "./Stats";
-import { useCabins } from "../cabins/useCabins";
-import SalesChart from "./SalesChart";
-import DurationChart from "./DurationChart";
 
 const StyledDashboardLayout = styled.div`
   display: grid;
@@ -18,15 +21,12 @@ const StyledDashboardLayout = styled.div`
 function DashboardLayout() {
   // Getting all the neeeded data from custom hooks
   const { bookings, isLoading: isLoading1 } = useRecentBookings();
-  const {
-    stays,
-    isLoading: isLoading2,
-    confirmedStays,
-    numDays,
-  } = useRecentStays();
+  const { isLoading: isLoading2, confirmedStays, numDays } = useRecentStays();
   const { cabins, isLoading: isLoading3 } = useCabins();
 
+  // If some data is still loading, display Spinner
   if (isLoading1 || isLoading2 || isLoading3) return <Spinner />;
+
   return (
     <StyledDashboardLayout>
       <Stats
@@ -35,7 +35,7 @@ function DashboardLayout() {
         numDays={numDays}
         cabinCount={cabins.length}
       />
-      <div>Today's activity</div>
+      <TodayActivity />
       <DurationChart confirmedStays={confirmedStays} />
       <SalesChart bookings={bookings} numDays={numDays} />
     </StyledDashboardLayout>
