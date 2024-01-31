@@ -3,6 +3,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 
+import { DarkModeProvider } from "./context/DarkModeContext";
+
 import Account from "./pages/Account";
 import Booking from "./pages/Booking";
 import Bookings from "./pages/Bookings";
@@ -17,7 +19,6 @@ import AppLayout from "./ui/AppLayout";
 
 import GlobalStyles from "./styles/GlobalStyles";
 import ProtectedRoute from "./ui/ProtectedRoute";
-import { DarkModeProvider } from "./context/DarkModeContext";
 
 // Creating the query client with the options for React Query
 const queryClient = new QueryClient({
@@ -82,7 +83,7 @@ function App() {
               maxWidth: "500px",
               padding: "16px 24px",
               backgroundColor: "var(--color-grey-0)",
-              textColor: "var(--color-grey-700)",
+              color: "var(--color-grey-700)",
             },
           }}
         />
