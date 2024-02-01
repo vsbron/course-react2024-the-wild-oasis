@@ -100,6 +100,7 @@ function Toggle({ id }) {
 
   // Click handler
   function handleClick(e) {
+    e.stopPropagation();
     const rect = e.target.closest("button").getBoundingClientRect();
     setPosition({
       x: 0,
@@ -107,7 +108,6 @@ function Toggle({ id }) {
     });
 
     // Checks the current id, decides whether open or close the context menu
-    // openId === id ? close() : open(id);
     openId === "" || openId !== id ? open(id) : close();
   }
 
@@ -123,7 +123,9 @@ function List({ id, children }) {
   const { openId, position, close } = useContext(MenusContext);
 
   // Getting the ref to detect the outside click
-  const ref = useOutsideClick(close);
+  const ref = useOutsideClick(() => {
+    close();
+  }, false); // Adding "false" to catch events in the bubbling phase
 
   // Guard clause, return nothing if IDs do not match
   if (openId !== id || !position) return null;
