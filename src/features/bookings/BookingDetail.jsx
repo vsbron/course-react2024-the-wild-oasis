@@ -13,6 +13,7 @@ import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Heading from "../../ui/Heading";
+import Empty from "../../ui/Empty";
 import Modal from "../../ui/Modal";
 import Row from "../../ui/Row";
 import Spinner from "../../ui/Spinner";
@@ -36,6 +37,7 @@ function BookingDetail() {
 
   // If data is still loading return Spinner
   if (isLoading) return <Spinner />;
+  if (!booking) return <Empty resourceName="booking" />;
 
   // Getting the current status form the booking
   const { status, id } = booking;

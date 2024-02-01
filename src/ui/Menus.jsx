@@ -123,9 +123,7 @@ function List({ id, children }) {
   const { openId, position, close } = useContext(MenusContext);
 
   // Getting the ref to detect the outside click
-  const ref = useOutsideClick(() => {
-    close();
-  }, false); // Adding "false" to catch events in the bubbling phase
+  const ref = useOutsideClick(close, false); // Adding "false" to catch events in the bubbling phase
 
   // Guard clause, return nothing if IDs do not match
   if (openId !== id || !position) return null;
