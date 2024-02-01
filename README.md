@@ -54,6 +54,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 - Form handled and validated with React Hook Form;
 - Data lists are divided and prefetched by React Query library;
 - Add/Edit/Delete Cabin form is built as a Modal using Compound Component Pattern;
+- React Error Boundary was added to catch render errors;
 
 ## Live version
 
