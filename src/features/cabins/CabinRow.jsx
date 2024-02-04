@@ -42,7 +42,7 @@ const Discount = styled.div`
 function CabinRow({ cabin }) {
   // Getting the isDeleting/isCreating status and mutate delete/create function from the Custom Hooks
   const { isDeleting, deleteCabin } = useDeleteCabin();
-  const { createCabin } = useCreateCabin();
+  const { isCreating, createCabin } = useCreateCabin();
 
   // Destructuring the props
   const {
@@ -87,7 +87,11 @@ function CabinRow({ cabin }) {
             {/* Context menu list */}
             <Menus.List id={cabinId}>
               {/* Duplicate button with it's own handler */}
-              <Menus.Button icon={<HiSquare2Stack />} onClick={handleDuplicate}>
+              <Menus.Button
+                icon={<HiSquare2Stack />}
+                onClick={handleDuplicate}
+                disabled={isCreating}
+              >
                 Duplicate
               </Menus.Button>
 
