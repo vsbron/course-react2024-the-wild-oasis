@@ -1,7 +1,8 @@
-import Heading from "../ui/Heading";
-import Row from "../ui/Row";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
+import Heading from "../ui/Heading";
+import Row from "../ui/Row";
 
 const List = styled.ul`
   padding-left: 20px;
@@ -12,6 +13,17 @@ const List = styled.ul`
 const Paragraph = styled.p`
   margin-top: -20px;
   margin-bottom: 20px;
+`;
+const Copyrights = styled.p`
+  font-size: 14px;
+
+  a {
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
 `;
 
 function About() {
@@ -95,6 +107,24 @@ function About() {
           <li>Custom images can be uploaded while adding/editing a Cabin;</li>
           <li>All the cabins data can be filtered and sorted;</li>
         </List>
+      </Row>
+
+      <Row>
+        <Heading as="h2">Copyrights:</Heading>
+        <Copyrights>
+          Built by VSBroN as a part of the React online learning course.
+          <br />
+          This project is available on{" "}
+          <Link
+            to="https://github.com/vsbron/course-react2024-the-wild-oasis"
+            target="_blank"
+          >
+            GitHub
+          </Link>
+          .
+          <br />
+          ©2024. All rights reserved.
+        </Copyrights>
       </Row>
     </>
   );
