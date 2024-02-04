@@ -42,7 +42,7 @@ const Discount = styled.div`
 function CabinRow({ cabin }) {
   // Getting the isDeleting/isCreating status and mutate delete/create function from the Custom Hooks
   const { isDeleting, deleteCabin } = useDeleteCabin();
-  const { isCreating, createCabin } = useCreateCabin();
+  const { createCabin } = useCreateCabin();
 
   // Destructuring the props
   const {

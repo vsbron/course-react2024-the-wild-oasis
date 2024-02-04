@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 import { DarkModeProvider } from "./context/DarkModeContext";
 
+import About from "./pages/About";
 import Account from "./pages/Account";
 import Booking from "./pages/Booking";
 import Bookings from "./pages/Bookings";
@@ -61,6 +62,7 @@ function App() {
               <Route path="users" element={<Users />} />
               <Route path="settings" element={<Settings />} />
               <Route path="account" element={<Account />} />
+              <Route path="about" element={<About />} />
             </Route>
             <Route path="login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />

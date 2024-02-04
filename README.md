@@ -1,6 +1,7 @@
 # The Wild Oasis
 
-Internal React-app for the boutique hotel to manage bookings, cabins and guests
+Internal React-app for the boutique hotel to manage bookings, cabins and guests.
+Please, click "Upload ALL" button on the bottom left before using.
 
 ## Features
 
@@ -9,6 +10,7 @@ Internal React-app for the boutique hotel to manage bookings, cabins and guests
 - Settings page where the app can be adjusted;
 - Dark mode for the app (Can be toggled in Header);
 - Main Dashboard page;
+- About the App page;
 
 ### Dashboard
 
