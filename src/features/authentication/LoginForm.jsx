@@ -10,8 +10,8 @@ import SpinnerMini from "../../ui/SpinnerMini";
 
 function LoginForm() {
   // Setting the state for controlled elements
-  const [email, setEmail] = useState("dummy@email.com");
-  const [password, setPassword] = useState("123123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   // Getting the isLoading state and mutation function from custom hook
   const { login, isLoading } = useLogin();
