@@ -61,4 +61,4 @@ Please, click "Upload ALL" button on the bottom left before using.
 
 ## Live version
 
-https://vsbron-course-react2024-wild-oasis.netlify.app
+https://vsbron-course-react2024-wild-oasis.vercel.app

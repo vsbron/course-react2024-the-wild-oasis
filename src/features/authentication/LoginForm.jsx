@@ -46,6 +46,7 @@ function LoginForm() {
           autoComplete="username"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="dummy@email.com"
           disabled={isLoading}
         />
       </FormRowVertical>
@@ -55,6 +56,7 @@ function LoginForm() {
           id="password"
           autoComplete="current-password"
           value={password}
+          placeholder="123123"
           onChange={(e) => setPassword(e.target.value)}
           disabled={isLoading}
         />

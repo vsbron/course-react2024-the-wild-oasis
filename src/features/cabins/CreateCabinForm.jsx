@@ -32,6 +32,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
     // Checking whether we have the image url or the image in the data
     const image = typeof data.image === "string" ? data.image : data.image[0];
 
+    // If we're in the edit session, update the cabin data
     if (isEditSession)
       editCabin(
         { newCabinData: { ...data, image }, id: editId },
@@ -42,6 +43,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
           },
         }
       );
+    // Otherwise, create new cabin data
     else
       createCabin(
         { ...data, image: image },
