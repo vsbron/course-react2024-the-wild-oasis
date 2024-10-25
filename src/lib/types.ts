@@ -16,3 +16,5 @@ export type DataItemProps = {
 export type EmptyProps = {
   resourceName: string;
 };
+export type PaginationProps = { count: number };
+export type ProtectedRouteProps = { children: ReactNode };

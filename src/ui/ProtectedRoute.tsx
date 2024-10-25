@@ -3,6 +3,7 @@ import { useUser } from "../features/authentication/useUser";
 import Spinner from "./Spinner";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { ProtectedRouteProps } from "../lib/types";
 
 const FullPage = styled.div`
   height: 100vh;
@@ -12,7 +13,7 @@ const FullPage = styled.div`
   justify-content: center;
 `;
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ children }: ProtectedRouteProps) {
   // Getting the navigate function from useNavigate hook
   const navigate = useNavigate();
 

@@ -8,7 +8,7 @@ import FileInput from "../../ui/FileInput";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
-import Textarea from "../../ui/Textarea";
+import Textarea from "../../ui/Textarea.tsx";
 
 function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   // Destructuring the cabin we need to edit
