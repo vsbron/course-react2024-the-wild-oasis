@@ -48,6 +48,7 @@ Please, click "Upload ALL" button on the bottom left before using.
 
 ## Details
 
+- App is written as React ASP with TypeScript;
 - Routes are handled with React Router library;
 - Styles are handled with Styled Components;
 - State management is handled by React Query;

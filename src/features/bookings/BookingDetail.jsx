@@ -15,7 +15,7 @@ import ConfirmDelete from "../../ui/ConfirmDelete";
 import Heading from "../../ui/Heading";
 import Empty from "../../ui/Empty";
 import Modal from "../../ui/Modal";
-import Row from "../../ui/Row";
+import Row from "../../ui/Row.sx";
 import Spinner from "../../ui/Spinner";
 import Tag from "../../ui/Tag";
 

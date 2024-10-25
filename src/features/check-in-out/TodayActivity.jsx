@@ -2,7 +2,7 @@ import { useTodayActivity } from "./useTodayActivity";
 
 import styled from "styled-components";
 import Heading from "../../ui/Heading";
-import Row from "../../ui/Row";
+import Row from "../../ui/Row.sx";
 import Spinner from "../../ui/Spinner";
 import TodayItem from "./TodayItem";
 

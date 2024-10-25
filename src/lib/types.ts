@@ -18,3 +18,4 @@ export type EmptyProps = {
 };
 export type PaginationProps = { count: number };
 export type ProtectedRouteProps = { children: ReactNode };
+export type RowProps = { type: "vertical" | "horizontal"; children: ReactNode };
