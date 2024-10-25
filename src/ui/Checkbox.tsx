@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { CheckboxProps } from "../lib/types";
+
 const StyledCheckbox = styled.div`
   display: flex;
   gap: 1.6rem;
@@ -25,7 +27,13 @@ const StyledCheckbox = styled.div`
   }
 `;
 
-function Checkbox({ checked, onChange, disabled = false, id, children }) {
+function Checkbox({
+  checked,
+  onChange,
+  disabled = false,
+  id,
+  children,
+}: CheckboxProps) {
   return (
     <StyledCheckbox>
       <input
