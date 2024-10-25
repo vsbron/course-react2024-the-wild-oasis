@@ -39,7 +39,7 @@ function Filter({ filterField, options }) {
   // Getting the reference and setter for URL state
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Getting the currentlya active filter value
+  // Getting the currently active filter value
   const currentFilter = searchParams.get(filterField) || options.at(0).value;
 
   // Click handler that updates the URL with the value
@@ -54,6 +54,7 @@ function Filter({ filterField, options }) {
     setSearchParams(searchParams);
   }
 
+  // Returned JSX
   return (
     <StyledFilter>
       {options.map((option) => (

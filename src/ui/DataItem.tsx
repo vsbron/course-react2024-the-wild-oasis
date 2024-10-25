@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DataItemProps } from "../lib/types";
 
 const StyledDataItem = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ const Label = styled.span`
   }
 `;
 
-function DataItem({ icon, label, children }) {
+function DataItem({ icon, label, children }: DataItemProps) {
   return (
     <StyledDataItem>
       <Label>
