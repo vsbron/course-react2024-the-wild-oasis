@@ -12,7 +12,7 @@ import ButtonGroup from "../../ui/ButtonGroup";
 import ButtonText from "../../ui/ButtonText";
 import Checkbox from "../../ui/Checkbox.tsx";
 import Heading from "../../ui/Heading";
-import Row from "../../ui/Row.sx";
+import Row from "../../ui/Row";
 import Spinner from "../../ui/Spinner";
 
 import BookingDataBox from "../bookings/BookingDataBox";
