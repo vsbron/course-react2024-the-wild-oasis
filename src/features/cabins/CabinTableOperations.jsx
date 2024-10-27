@@ -3,6 +3,7 @@ import SortBy from "../../ui/SortBy";
 import TableOperations from "../../ui/TableOperations";
 
 function CabinTableOperations() {
+  // Returned JSX
   return (
     <TableOperations>
       <Filter

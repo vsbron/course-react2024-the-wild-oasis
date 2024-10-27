@@ -32,6 +32,7 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  // Returned JSX
   return (
     <DarkModeProvider>
       <QueryClientProvider client={queryClient}>

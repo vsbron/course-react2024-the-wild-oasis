@@ -26,6 +26,7 @@ const Container = styled.div`
 `;
 
 function AppLayout() {
+  // Returned JSX
   return (
     <StyledAppLayout>
       <Header />

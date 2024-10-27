@@ -43,6 +43,7 @@ function TodayActivity() {
   // Getting the isLoading state and the data from the custom hook
   const { isLoading, activities } = useTodayActivity();
 
+  // Returned JSX
   return (
     <StyledToday>
       <Row type="horizontal">
@@ -56,7 +57,7 @@ function TodayActivity() {
             ))}
           </TodayList>
         ) : (
-          "No activity for today"
+          <NoActivity>No activity for today</NoActivity>
         )
       ) : (
         <Spinner />

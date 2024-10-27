@@ -56,7 +56,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       );
   }
 
-  // Error handler function (prits out the errors if there's at least one error)
+  // Error handler function (prints out the errors if there's at least one error)
   function onError(errors) {
     // console.log(errors);
   }
@@ -64,6 +64,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   // Boolean status of whether the app is loading something
   const isWorking = isCreating || isEditing;
 
+  // Returned JSX
   return (
     <Form
       onSubmit={handleSubmit(onSubmit, onError)}

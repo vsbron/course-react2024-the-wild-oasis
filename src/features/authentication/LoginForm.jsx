@@ -36,6 +36,7 @@ function LoginForm() {
     );
   }
 
+  // Returned JSX
   return (
     <Form onSubmit={handleSubmit}>
       <FormRowVertical label="Email address">

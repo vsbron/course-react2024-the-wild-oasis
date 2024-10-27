@@ -85,6 +85,7 @@ function CheckinBooking() {
     }
   }
 
+  // Returned JSX
   return (
     <>
       <Row type="horizontal">

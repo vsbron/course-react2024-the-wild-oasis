@@ -16,6 +16,7 @@ function HeaderMenu() {
   // Getting the navigate function from useNavigate hook
   const navigate = useNavigate();
 
+  // Returned JSX
   return (
     <StyledHeaderMenu>
       <li>

@@ -48,6 +48,7 @@ const Value = styled.p`
 `;
 
 function Stat({ icon, title, value, color }) {
+  // Returned JSX
   return (
     <StyledStat>
       <Icon color={color}>{icon}</Icon>

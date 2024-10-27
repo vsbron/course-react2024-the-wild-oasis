@@ -151,6 +151,7 @@ function DurationChart({ confirmedStays }) {
   // Preparing the data using our stays and chosen theme for the pie chart
   const data = prepareData(startData, confirmedStays);
 
+  // Returned JSX
   return (
     <ChartBox>
       <Heading as="h2">Stay duration summary:</Heading>

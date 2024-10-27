@@ -22,7 +22,7 @@ function UpdateSettingsForm() {
 
   if (isLoading) return <Spinner />;
 
-  // Handke the update of the settings
+  // Handle the update of the settings
   function handleUpdate(e, field) {
     // Destructuring the e object
     const { value } = e.target;
@@ -33,6 +33,7 @@ function UpdateSettingsForm() {
     updateSetting({ [field]: value });
   }
 
+  // Returned JSX
   return (
     <Form>
       <FormRow label="Minimum nights/booking">

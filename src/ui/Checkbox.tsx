@@ -34,6 +34,7 @@ function Checkbox({
   id,
   children,
 }: CheckboxProps) {
+  // Returned JSX
   return (
     <StyledCheckbox>
       <input

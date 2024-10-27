@@ -51,6 +51,7 @@ function UpdateUserDataForm() {
     setAvatar(null);
   }
 
+  // Returned JSX
   return (
     <Form onSubmit={handleSubmit}>
       <FormRow label="Email address">

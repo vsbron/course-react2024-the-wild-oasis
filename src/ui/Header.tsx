@@ -15,6 +15,7 @@ const StyledHeader = styled.header`
   justify-content: flex-end;
 `;
 
+// Returned JSX
 function Header() {
   return (
     <StyledHeader>

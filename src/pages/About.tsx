@@ -27,6 +27,7 @@ const Copyrights = styled.p`
 `;
 
 function About() {
+  // Returned JSX
   return (
     <>
       <Heading as="h1">About the App</Heading>

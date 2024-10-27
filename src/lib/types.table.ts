@@ -8,6 +8,10 @@ export type HeaderProps = {
   children: ReactNode;
 };
 export type RowProps = { children: ReactNode };
+export type TableProps = {
+  columns: string;
+  children: React.ReactNode;
+};
 export type TableContextType = {
   columns: string;
 };

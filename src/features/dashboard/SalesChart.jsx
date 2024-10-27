@@ -63,6 +63,7 @@ function SalesChart({ bookings, numDays }) {
         background: "#fff",
       };
 
+  // Returned JSX
   return (
     <StyledSalesChart>
       <Heading as="h2">

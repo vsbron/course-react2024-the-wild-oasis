@@ -103,6 +103,7 @@ const Footer = styled.footer`
 
 // A purely presentational component
 function BookingDataBox({ booking }) {
+  // Destructuring booking prop
   const {
     created_at,
     startDate,
@@ -119,6 +120,7 @@ function BookingDataBox({ booking }) {
     cabins: { name: cabinName },
   } = booking;
 
+  // Returned JSX
   return (
     <StyledBookingDataBox>
       <Header>

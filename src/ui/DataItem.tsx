@@ -23,6 +23,7 @@ const Label = styled.span`
 `;
 
 function DataItem({ icon, label, children }: DataItemProps) {
+  // Returned JSX
   return (
     <StyledDataItem>
       <Label>

@@ -30,6 +30,7 @@ function TodayItem({ activity }) {
   // Destructuring activity data
   const { id, status, guests, numNights } = activity;
 
+  // Returned JSX
   return (
     <StyledTodayItem>
       {status === "unconfirmed" && <Tag type="green">Arriving</Tag>}

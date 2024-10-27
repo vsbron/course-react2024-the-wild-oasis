@@ -55,6 +55,7 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 function MainNav() {
+  // Returned JSX
   return (
     <nav>
       <NavList>

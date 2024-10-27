@@ -19,7 +19,7 @@ const StyledDashboardLayout = styled.div`
 `;
 
 function DashboardLayout() {
-  // Getting all the neeeded data from custom hooks
+  // Getting all the needed data from custom hooks
   const { bookings, isLoading: isLoading1 } = useRecentBookings();
   const { isLoading: isLoading2, confirmedStays, numDays } = useRecentStays();
   const { cabins, isLoading: isLoading3 } = useCabins();
@@ -27,6 +27,7 @@ function DashboardLayout() {
   // If some data is still loading, display Spinner
   if (isLoading1 || isLoading2 || isLoading3) return <Spinner />;
 
+  // Returned JSX
   return (
     <StyledDashboardLayout>
       <Stats

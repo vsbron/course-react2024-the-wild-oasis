@@ -125,6 +125,7 @@ function Uploader() {
     setIsLoading(false);
   }
 
+  // Returned JSX
   return (
     <div
       style={{

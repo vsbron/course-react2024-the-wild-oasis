@@ -90,6 +90,7 @@ function Pagination({ count }) {
     setSearchParams(searchParams);
   }
 
+  // Returned JSX
   return (
     <StyledPagination>
       <P>

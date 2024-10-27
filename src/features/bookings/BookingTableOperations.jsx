@@ -3,6 +3,7 @@ import Filter from "../../ui/Filter";
 import TableOperations from "../../ui/TableOperations";
 
 function BookingTableOperations() {
+  // Returned JSX
   return (
     <TableOperations>
       <Filter

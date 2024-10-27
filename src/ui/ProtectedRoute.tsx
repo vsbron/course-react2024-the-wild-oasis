@@ -32,6 +32,7 @@ function ProtectedRoute({ children }: ProtectedRouteProps) {
 
   // 3. While loading, show Spinner
   if (isLoading)
+    // Returned JSX
     return (
       <FullPage>
         <Spinner />

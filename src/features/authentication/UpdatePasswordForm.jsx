@@ -11,12 +11,15 @@ function UpdatePasswordForm() {
   const { register, handleSubmit, formState, getValues, reset } = useForm();
   const { errors } = formState;
 
+  // Getting the update user function and isUpdating state from the custom hook
   const { updateUser, isUpdating } = useUpdateUser();
 
+  // Submit handler function
   function onSubmit({ password }) {
     updateUser({ password }, { onSuccess: reset });
   }
 
+  // Returned JSX
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow

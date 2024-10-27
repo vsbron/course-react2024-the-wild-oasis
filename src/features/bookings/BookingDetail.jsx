@@ -49,6 +49,7 @@ function BookingDetail() {
     "checked-out": "silver",
   };
 
+  // Returned JSX
   return (
     <>
       <Row type="horizontal">

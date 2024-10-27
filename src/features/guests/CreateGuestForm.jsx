@@ -1,14 +1,15 @@
 import { useForm } from "react-hook-form";
+import styled from "styled-components";
 
 import { useCountries } from "hooks/useCountries";
 import { useCreateGuest } from "features/guests/useCreateGuest";
+
 import Spinner from "ui/Spinner";
 import Form from "ui/Form";
 import FormRow from "ui/FormRow";
 import Input from "ui/Input";
 import Select from "ui/Select";
 import Button from "ui/Button";
-import styled from "styled-components";
 
 const FormSelect = styled(Select)`
   width: 100%;
@@ -54,6 +55,7 @@ function CreateGuestForm({ onSuccessNewGuest, closeModal }) {
     );
   };
 
+  // Returned JSX
   return (
     <Form type="modal" onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Full name" error={errors?.fullName?.message}>

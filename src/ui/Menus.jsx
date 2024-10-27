@@ -84,6 +84,7 @@ function Menus({ children }) {
   const close = () => setOpenId("");
   const open = setOpenId;
 
+  // Returned JSX
   return (
     <MenusContext.Provider
       value={{ openId, open, close, position, setPosition }}
@@ -111,6 +112,7 @@ function Toggle({ id }) {
     openId === "" || openId !== id ? open(id) : close();
   }
 
+  // Returned JSX
   return (
     <StyledToggle onClick={handleClick}>
       <HiEllipsisVertical />
@@ -128,6 +130,7 @@ function List({ id, children }) {
   // Guard clause, return nothing if IDs do not match
   if (openId !== id || !position) return null;
 
+  // Returned JSX
   return (
     <StyledList ref={ref} position={position}>
       {children}
@@ -139,12 +142,13 @@ function Button({ children, icon, onClick }) {
   // Getting the state from Context API
   const { close } = useContext(MenusContext);
 
-  // Click handker that executes the function and closes context menu
+  // Click handler that executes the function and closes context menu
   function handleClick() {
     onClick?.();
     close();
   }
 
+  // Returned JSX
   return (
     <li>
       <StyledButton onClick={handleClick}>

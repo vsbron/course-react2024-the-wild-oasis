@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Flag } from 'ui/Flag';
+import styled from "styled-components";
+import { Flag } from "ui/Flag";
 
 const StyledGuestListItem = styled.li`
   display: grid;
@@ -26,8 +26,9 @@ const ID = styled.div`
 `;
 
 function GuestListItem({ guest, onClick }) {
+  // Returned JSX
   return (
-    <StyledGuestListItem onClick={() => onClick(guest)} role='button'>
+    <StyledGuestListItem onClick={() => onClick(guest)} role="button">
       <Flag src={guest.countryFlag} alt={`Flag of ${guest.nationality}`} />
       <div>{guest.fullName}</div>
       <ID>ID: {guest.nationalID}</ID>

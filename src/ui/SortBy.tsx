@@ -16,6 +16,7 @@ function SortBy({ options }: SortByProps) {
     setSearchParams(searchParams);
   }
 
+  // Returned JSX
   return (
     <Select
       type="white"

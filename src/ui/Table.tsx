@@ -7,6 +7,7 @@ import {
   HeaderProps,
   RowProps,
   TableContextType,
+  TableProps,
 } from "../lib/types.table";
 
 const StyledTable = styled.div`
@@ -65,13 +66,8 @@ const Footer = styled.footer`
 const TableContext = createContext<TableContextType>({ columns: "1fr" });
 
 // 2) Create Parent Component
-function Table({
-  columns,
-  children,
-}: {
-  columns: string;
-  children: React.ReactNode;
-}) {
+function Table({ columns, children }: TableProps) {
+  // Returned JSX
   return (
     <TableContext.Provider value={{ columns }}>
       <StyledTable role="table">{children}</StyledTable>
@@ -84,6 +80,7 @@ function Header({ children }: HeaderProps) {
   // Get the columns from Context API
   const { columns } = useContext(TableContext);
 
+  // Returned JSX
   return (
     <StyledHeader role="row" as="header" columns={columns}>
       {children}
@@ -94,6 +91,7 @@ function Row({ children }: RowProps) {
   // Get the columns from Context API
   const { columns } = useContext(TableContext);
 
+  // Returned JSX
   return (
     <StyledRow role="row" columns={columns}>
       {children}

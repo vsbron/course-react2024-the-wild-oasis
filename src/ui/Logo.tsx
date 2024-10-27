@@ -18,6 +18,7 @@ function Logo() {
   // Setting the source of the logo image
   const src = isDarkMode ? "/logo-dark.png" : "/logo-light.png";
 
+  // Returned JSX
   return (
     <StyledLogo>
       <Img src={src} alt="Logo" />

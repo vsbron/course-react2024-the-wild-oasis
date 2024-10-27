@@ -67,6 +67,7 @@ function CabinRow({ cabin }) {
     });
   }
 
+  // Returned JSX
   return (
     <Table.Row columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
       <Img src={image} />

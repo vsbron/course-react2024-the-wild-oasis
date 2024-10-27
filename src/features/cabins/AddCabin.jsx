@@ -4,6 +4,7 @@ import Modal from "../../ui/Modal";
 import CreateCabinForm from "./CreateCabinForm";
 
 function AddCabin() {
+  // Returned JSX
   return (
     <div>
       <Modal>

@@ -22,17 +22,20 @@ const Avatar = styled.img`
 `;
 
 function UserAvatar() {
-
   // Getting the user from the useUser custom hook, and destructure the name and avatar
-  const {user} = useUser();
-  const {fullName, avatar} = user.user_metadata;
+  const { user } = useUser();
+  const { fullName, avatar } = user.user_metadata;
 
+  // Returned JSX
   return (
     <StyledUserAvatar>
-      <Avatar src={avatar || "default-user.jpg"} alt={`Avatar of ${fullName}`} />
+      <Avatar
+        src={avatar || "default-user.jpg"}
+        alt={`Avatar of ${fullName}`}
+      />
       <span>{fullName}</span>
     </StyledUserAvatar>
-  )
+  );
 }
 
-export default UserAvatar
+export default UserAvatar;

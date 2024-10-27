@@ -74,6 +74,7 @@ function BookingRow({
     "checked-out": "silver",
   };
 
+  // Returned JSX
   return (
     <Table.Row>
       <Cabin>{cabinName}</Cabin>

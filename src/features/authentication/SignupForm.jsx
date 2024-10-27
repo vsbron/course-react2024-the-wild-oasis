@@ -21,6 +21,7 @@ function SignupForm() {
     signup({ fullName, email, password }, { onSettled: () => reset() });
   }
 
+  // Returned JSX
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Full name" error={errors?.fullName?.message}>

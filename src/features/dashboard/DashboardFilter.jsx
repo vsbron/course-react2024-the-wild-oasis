@@ -1,6 +1,7 @@
 import Filter from "../../ui/Filter";
 
 function DashboardFilter() {
+  // Returned JSX
   return (
     <Filter
       filterField="last"

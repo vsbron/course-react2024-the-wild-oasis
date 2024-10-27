@@ -8,6 +8,7 @@ function DarkModeToggle() {
   // Getting the dark mode data from custom hook
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
+  // Returned JSX
   return (
     <ButtonIcon onClick={toggleDarkMode}>
       {isDarkMode ? <HiOutlineSun /> : <HiOutlineMoon />}
