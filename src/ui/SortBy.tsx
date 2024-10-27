@@ -1,7 +1,9 @@
 import { useSearchParams } from "react-router-dom";
-import Select from "./Select";
 
-function SortBy({ options }) {
+import Select from "./Select";
+import { SortByProps } from "../lib/types";
+
+function SortBy({ options }: SortByProps) {
   // Getting the URL state and its setter
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -9,7 +11,7 @@ function SortBy({ options }) {
   const sortBy = searchParams.get("sortBy") || "createdAt-asc";
 
   // Sort select element change handler
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
     searchParams.set("sortBy", e.target.value);
     setSearchParams(searchParams);
   }

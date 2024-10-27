@@ -1,5 +1,13 @@
-import { createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import styled from "styled-components";
+
+import {
+  BodyProps,
+  CommonRowProps,
+  HeaderProps,
+  RowProps,
+  TableContextType,
+} from "../lib/types.table";
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -9,7 +17,7 @@ const StyledTable = styled.div`
   border-radius: 7px;
 `;
 
-const CommonRow = styled.div`
+const CommonRow = styled.div<CommonRowProps>`
   display: grid;
   grid-template-columns: ${(props) => props.columns};
   column-gap: 2.4rem;
@@ -54,10 +62,16 @@ const Footer = styled.footer`
 
 // Compound Component Pattern
 // 1) Create Context
-const TableContext = createContext();
+const TableContext = createContext<TableContextType>({ columns: "1fr" });
 
 // 2) Create Parent Component
-function Table({ columns, children }) {
+function Table({
+  columns,
+  children,
+}: {
+  columns: string;
+  children: React.ReactNode;
+}) {
   return (
     <TableContext.Provider value={{ columns }}>
       <StyledTable role="table">{children}</StyledTable>
@@ -66,7 +80,7 @@ function Table({ columns, children }) {
 }
 
 // 3) Create child components to help implementing the common tasks
-function Header({ children }) {
+function Header({ children }: HeaderProps) {
   // Get the columns from Context API
   const { columns } = useContext(TableContext);
 
@@ -76,7 +90,7 @@ function Header({ children }) {
     </StyledHeader>
   );
 }
-function Row({ children }) {
+function Row({ children }: RowProps) {
   // Get the columns from Context API
   const { columns } = useContext(TableContext);
 
@@ -88,7 +102,7 @@ function Row({ children }) {
 }
 
 // Body of the table that renders the data using Render Prop Pattern
-function Body({ data, render }) {
+function Body({ data, render }: BodyProps) {
   return <StyledBody>{data.map(render)}</StyledBody>;
 }
 
