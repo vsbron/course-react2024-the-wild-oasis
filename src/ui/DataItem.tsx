@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { DataItemProps } from "../lib/types";
 
 const StyledDataItem = styled.div`

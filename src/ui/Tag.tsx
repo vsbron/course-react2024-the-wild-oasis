@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { TagProps } from "../lib/types";
 
 const Tag = styled.span<TagProps>`

@@ -16,10 +16,10 @@ import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import Settings from "./pages/Settings";
 import Users from "./pages/Users";
-import AppLayout from "./ui/AppLayout";
 
-import GlobalStyles from "./styles/GlobalStyles";
+import AppLayout from "./ui/AppLayout";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import GlobalStyles from "./styles/GlobalStyles";
 
 // Creating the query client with the options for React Query
 const queryClient = new QueryClient({
