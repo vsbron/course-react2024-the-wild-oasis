@@ -16,7 +16,7 @@ export async function getCabins() {
 }
 
 // Function that queries all the rows from Cabins table database
-// This needs to be permited in Authentication/Policies
+// This needs to be permitted in Authentication/Policies
 export async function createEditCabin(newCabin, id) {
   // Checking whether new cabin contains an image url instead of file
   const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);

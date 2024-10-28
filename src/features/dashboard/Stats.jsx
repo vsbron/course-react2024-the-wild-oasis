@@ -15,8 +15,8 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
   // 2. Calculating the amount of money from all the bookings
   const sales = bookings.reduce((acc, cur) => acc + cur.totalPrice, 0);
 
-  // 3. Calculate how many checkins there were in chosen period
-  const checkins = confirmedStays.length;
+  // 3. Calculate how many check-ins there were in chosen period
+  const checkIns = confirmedStays.length;
 
   // 4. Calculating the occupation rate
   const occupation =
@@ -42,7 +42,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
         title="Check-ins"
         color="indigo"
         icon={<HiOutlineCalendarDays />}
-        value={checkins}
+        value={checkIns}
       />
       <Stat
         title="Occupancy rate"

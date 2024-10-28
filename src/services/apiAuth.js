@@ -25,7 +25,7 @@ export async function login({ email, password }) {
     password,
   });
 
-  // Throw error if login wasn't sucessful
+  // Throw error if login wasn't successful
   if (error) throw new Error(error.message);
 
   // Return data

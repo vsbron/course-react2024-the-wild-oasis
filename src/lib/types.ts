@@ -3,7 +3,9 @@ import { ReactNode } from "react";
 // COMPONENTS
 export type ButtonProps = {
   size: "small" | "medium" | "large";
-  variation: "primary" | "secondary" | "danger";
+  variation?: "primary" | "secondary" | "danger";
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 };
 export type CheckboxProps = {
   checked: boolean;
@@ -23,7 +25,7 @@ export type EmptyProps = {
 export type FormProps = { type: "regular" | "modal" };
 export type FormRowProps = {
   label: string;
-  error: string;
+  error?: string;
   children: ReactNode;
 };
 export type HeadingProps = { as: "h1" | "h2" | "h3" | "h4" };
@@ -33,10 +35,18 @@ export type RowProps = {
   type?: "vertical" | "horizontal";
   children: ReactNode;
 };
-export type SortByProps = { options: OptionsObject };
+export type SelectProps = {
+  options: OptionsObject[];
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  type?: string;
+};
+export type StyledSelectProps = { type: string };
+export type SortByProps = { options: OptionsObject[] };
 export type TagProps = { type: string };
 
-export interface OptionsObject {
+// INTERFACES
+interface OptionsObject {
   label: string;
   value: string;
 }

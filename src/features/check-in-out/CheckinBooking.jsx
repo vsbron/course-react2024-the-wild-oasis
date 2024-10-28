@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useBooking } from "../bookings/useBooking";
-import { useCheckin } from "../bookings/useCheckin";
+import { useCheckIn } from "../bookings/useCheckIn";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useSettings } from "../settings/useSettings";
 import { formatCurrency } from "../../utils/helpers";
@@ -25,7 +25,7 @@ const Box = styled.div`
   padding: 2.4rem 4rem;
 `;
 
-function CheckinBooking() {
+function CheckInBooking() {
   // Setting the state form payment confirmation and breakfast
   const [confirmPaid, setConfirmPaid] = useState(false);
   const [addBreakfast, setAddBreakfast] = useState(false);
@@ -44,10 +44,10 @@ function CheckinBooking() {
   // Getting the moving back link and navigate function from hooks
   const moveBack = useMoveBack();
 
-  // Geting the status and mutation function from custom hook
-  const { isCheckingIn, checkin } = useCheckin();
+  // Getting the status and mutation function from custom hook
+  const { isCheckingIn, checkIn } = useCheckIn();
 
-  // If data is still loadingm show Spinner
+  // If data is still loading show Spinner
   if (isLoading || isLoadingSettings) return <Spinner />;
 
   // Destructuring the booking data
@@ -64,14 +64,14 @@ function CheckinBooking() {
   const optionalBreakfastPrice =
     settings?.breakfastPrice * numNights * numGuests;
 
-  // Checkin handler
-  function handleCheckin() {
+  // CheckIn handler
+  function handleCheckIn() {
     // Guard clause
     if (!confirmPaid) return;
 
     // If breakfast was added, updating a number of fields
     if (addBreakfast) {
-      checkin({
+      checkIn({
         bookingId,
         breakfast: {
           hasBreakfast: true,
@@ -81,7 +81,7 @@ function CheckinBooking() {
       });
     } else {
       // Calling the mutation function with empty breakfast object if breakfast wasn't added
-      checkin({ bookingId, breakfast: {} });
+      checkIn({ bookingId, breakfast: {} });
     }
   }
 
@@ -131,7 +131,7 @@ function CheckinBooking() {
         </Checkbox>
       </Box>
       <ButtonGroup>
-        <Button onClick={handleCheckin} disabled={!confirmPaid || isCheckingIn}>
+        <Button onClick={handleCheckIn} disabled={!confirmPaid || isCheckingIn}>
           Check in booking #{bookingId}
         </Button>
         <Button variation="secondary" onClick={moveBack}>
@@ -142,4 +142,4 @@ function CheckinBooking() {
   );
 }
 
-export default CheckinBooking;
+export default CheckInBooking;

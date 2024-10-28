@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 
-import Select from "./Select";
 import { SortByProps } from "../lib/types";
+import Select from "./Select";
 
 function SortBy({ options }: SortByProps) {
   // Getting the URL state and its setter
