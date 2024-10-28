@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 // COMPONENTS
 export type ButtonProps = {
-  size: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large";
   variation?: "primary" | "secondary" | "danger";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
@@ -45,6 +45,11 @@ export type StyledSelectProps = { type: string };
 export type SortByProps = { options: OptionsObject[] };
 export type TagProps = { type: string };
 
+
+// FEATURES
+export type CheckoutButtonProps = {
+  bookingId: string
+}
 // INTERFACES
 interface OptionsObject {
   label: string;

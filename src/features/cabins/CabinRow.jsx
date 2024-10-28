@@ -96,12 +96,12 @@ function CabinRow({ cabin }) {
                 Duplicate
               </Menus.Button>
 
-              {/* Edit button with which is part of the Modal coponent also */}
+              {/* Edit button with which is part of the Modal component also */}
               <Modal.Open opens="edit">
                 <Menus.Button icon={<HiPencil />}>Edit</Menus.Button>
               </Modal.Open>
 
-              {/* Delete button with which is part of the Modal coponent also */}
+              {/* Delete button with which is part of the Modal component also */}
               <Modal.Open opens="delete">
                 <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
               </Modal.Open>

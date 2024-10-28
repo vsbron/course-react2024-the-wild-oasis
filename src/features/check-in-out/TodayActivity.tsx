@@ -43,6 +43,9 @@ function TodayActivity() {
   // Getting the isLoading state and the data from the custom hook
   const { isLoading, activities } = useTodayActivity();
 
+  // Guard clause
+  if (!activities) return <div>No activity for today</div>
+
   // Returned JSX
   return (
     <StyledToday>

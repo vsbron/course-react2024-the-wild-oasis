@@ -46,18 +46,22 @@ async function createBookings() {
     .from("guests")
     .select("id")
     .order("id");
-  const allGuestIds = guestsIds.map((cabin) => cabin.id);
   const { data: cabinsIds } = await supabase
     .from("cabins")
     .select("id")
     .order("id");
+
+  // Guard clause
+  if (!guestsIds || !cabinsIds) return <div>Couldn't get bookings data</div>
+
+  const allGuestIds = guestsIds.map((cabin) => cabin.id);
   const allCabinIds = cabinsIds.map((cabin) => cabin.id);
 
   const finalBookings = bookings.map((booking) => {
     // Here relying on the order of cabins, as they don't have and ID yet
     const cabin = cabins.at(booking.cabinId - 1);
     const numNights = subtractDates(booking.endDate, booking.startDate);
-    const cabinPrice = numNights * (cabin.regularPrice - cabin.discount);
+    const cabinPrice = numNights * (cabin!.regularPrice - cabin!.discount);
     const extrasPrice = booking.hasBreakfast
       ? numNights * 15 * booking.numGuests
       : 0; // hardcoded breakfast price
