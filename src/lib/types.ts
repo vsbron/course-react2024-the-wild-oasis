@@ -46,13 +46,6 @@ export type SortByProps = { options: OptionsObject[] };
 export type TagProps = { type: string };
 
 // INTERFACES
-export interface NewSettingObject {
-  setting:
-    | "minBookingLength"
-    | "maxBookingLength"
-    | "maxGuestsPerBooking"
-    | "breakfastPrice";
-}
 interface OptionsObject {
   label: string;
   value: string;
