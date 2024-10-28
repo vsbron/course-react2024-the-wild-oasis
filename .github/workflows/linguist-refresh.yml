@@ -1,0 +1,18 @@
+name: Linguist Refresh
+on:
+  workflow_dispatch: # Allows manual trigger from the Actions tab
+
+jobs:
+  refresh-languages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Linguist
+        run: |
+          sudo apt-get update
+          sudo apt-get install ruby-full
+          gem install github-linguist
+      - name: Run Linguist to analyze languages
+        run: |
+          github-linguist
