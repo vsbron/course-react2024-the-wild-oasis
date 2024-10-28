@@ -1,6 +1,14 @@
 import supabase, { supabaseUrl } from "./supabase";
 
-export async function signup({ fullName, email, password }) {
+export async function signup({
+  fullName,
+  email,
+  password,
+}: {
+  fullName: string;
+  email: string;
+  password: string;
+}) {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -12,14 +20,20 @@ export async function signup({ fullName, email, password }) {
     },
   });
 
-  // Throw error if login wasn't sucessful
+  // Throw error if login wasn't successful
   if (error) throw new Error(error.message);
 
   // Return data
   return data;
 }
 
-export async function login({ email, password }) {
+export async function login({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -42,7 +56,7 @@ export async function getCurrentUser() {
   // Getting the user data
   const { data, error } = await supabase.auth.getUser();
 
-  // Throw error if login wasn't sucessful
+  // Throw error if login wasn't successful
   if (error) throw new Error(error.message);
 
   // Return user data
@@ -52,11 +66,19 @@ export async function getCurrentUser() {
 export async function logout() {
   const { error } = await supabase.auth.signOut();
 
-  // Throw error if logout wasn't sucessful
+  // Throw error if logout wasn't successful
   if (error) throw new Error(error.message);
 }
 
-export async function updateCurrentUser({ password, fullName, avatar }) {
+export async function updateCurrentUser({
+  password,
+  fullName,
+  avatar,
+}: {
+  fullName: string;
+  avatar: string;
+  password: string;
+}) {
   // 1. Update Password or Full Name
 
   // Creating the object that we will update the user with
@@ -65,7 +87,7 @@ export async function updateCurrentUser({ password, fullName, avatar }) {
   if (fullName) updateData = { data: { fullName } };
 
   // Sending the object to supabase and receiving data and error
-  const { data, error } = await supabase.auth.updateUser(updateData);
+  const { data, error } = await supabase.auth.updateUser(updateData!);
 
   // If error, throw Error
   if (error) throw new Error(error.message);
@@ -84,7 +106,8 @@ export async function updateCurrentUser({ password, fullName, avatar }) {
     .upload(fileName, avatar);
 
   // If error, throw Error
-  if (storageError) throw new Error(error.message);
+  if (storageError)
+    throw new Error(storageError.message || "Failed to upload avatar");
 
   // 3. Update avatar in the user
   const { data: updatedUser, error: updateError } =
@@ -95,7 +118,8 @@ export async function updateCurrentUser({ password, fullName, avatar }) {
     });
 
   // If error, throw Error
-  if (updateError) throw new Error(error.message);
+  if (updateError)
+    throw new Error(updateError.message || "Failed to update user avatar");
 
   return updatedUser;
 }

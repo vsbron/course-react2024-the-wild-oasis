@@ -1,7 +1,9 @@
+import { PostgrestQueryBuilder } from "@supabase/postgrest-js";
+
 import supabase, { supabaseUrl } from "./supabase";
 
 // Function that queries all the rows from Cabins table database
-// This needs to be permited in Authentication/Policies
+// This needs to be permitted in Authentication/Policies
 export async function getCabins() {
   // Code from Supabase/API Docs/cabins
   const { data, error } = await supabase.from("cabins").select("*");
@@ -17,7 +19,7 @@ export async function getCabins() {
 
 // Function that queries all the rows from Cabins table database
 // This needs to be permitted in Authentication/Policies
-export async function createEditCabin(newCabin, id) {
+export async function createEditCabin(newCabin: any, id: string) {
   // Checking whether new cabin contains an image url instead of file
   const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
 
@@ -34,16 +36,19 @@ export async function createEditCabin(newCabin, id) {
 
   //// 1) Create / Edit a Cabin
 
-  // Stroring a part of the query as separate value
-  let query = supabase.from("cabins");
+  // Storing a part of the query as separate value
+  let query: PostgrestQueryBuilder<any, any, "cabins", unknown> =
+    supabase.from("cabins");
 
   // A) Creating a cabin
   // Creating new cabin if we're in new cabin session (id is null)
-  if (!id) query = query.insert([{ ...newCabin, image: imagePath }]);
-
-  // B) Editing a cabin
-  // Editing a cabin if we're in edit cabin session (id is NOT null)
-  if (id) query = query.update({ ...newCabin, image: imagePath }).eq("id", id);
+  if (!id) {
+    await query.insert([{ ...newCabin, image: imagePath }]);
+  } else {
+    // B) Editing a cabin
+    // Editing a cabin if we're in edit cabin session (id is NOT null)
+    await query.update({ ...newCabin, image: imagePath }).eq("id", id);
+  }
 
   // AB) Awaiting the query from async function
   const { data, error } = await query.select();
@@ -68,8 +73,7 @@ export async function createEditCabin(newCabin, id) {
 
   // Delete the cabin if there's an image error
   if (storageError) {
-    await supabase.from("cabins").delete().eq("id", data.id);
-
+    await supabase.from("cabins").delete().eq("id", data[0].id);
     console.error(storageError);
     throw new Error(
       "Cabin image could not be uploaded and the cabin was not created"
@@ -80,8 +84,8 @@ export async function createEditCabin(newCabin, id) {
 }
 
 // Function that deletes the row by ID from Cabins table database
-// This needs to be permited in Authentication/Policies
-export async function deleteCabin(id) {
+// This needs to be permitted in Authentication/Policies
+export async function deleteCabin(id: string) {
   // Code from Supabase/API Docs/cabins to delete the cabin from Database
   const { data, error } = await supabase.from("cabins").delete().eq("id", id);
 
