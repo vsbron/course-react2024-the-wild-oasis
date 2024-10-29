@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { ButtonIconProps } from "../lib/types";
 
-const ButtonIcon = styled.button`
+const ButtonIcon = styled.button<ButtonIconProps>`
   background: none;
   border: none;
   padding: 0.6rem;

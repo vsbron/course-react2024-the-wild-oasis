@@ -7,6 +7,10 @@ export type ButtonProps = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
 };
+export type ButtonIconProps = {
+  onClick?: () => void;
+  disabled?: boolean;
+};
 export type CheckboxProps = {
   checked: boolean;
   onChange: () => void;
@@ -22,9 +26,9 @@ export type DataItemProps = {
 export type EmptyProps = {
   resourceName: string;
 };
-export type FormProps = { type: "regular" | "modal" };
+export type FormProps = { type?: "regular" | "modal" };
 export type FormRowProps = {
-  label: string;
+  label?: string;
   error?: string;
   children: ReactNode;
 };
@@ -45,13 +49,19 @@ export type StyledSelectProps = { type: string };
 export type SortByProps = { options: OptionsObject[] };
 export type TagProps = { type: string };
 
-
 // FEATURES
 export type CheckoutButtonProps = {
-  bookingId: string
-}
+  bookingId: string;
+};
+
 // INTERFACES
 interface OptionsObject {
   label: string;
   value: string;
 }
+
+// CONTEXT
+export type DarkModeContextType = {
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
+};

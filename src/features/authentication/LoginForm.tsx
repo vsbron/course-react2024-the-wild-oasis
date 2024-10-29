@@ -17,7 +17,7 @@ function LoginForm() {
   const { login, isLoading } = useLogin();
 
   // Submit handler
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     // Preventing default behavior
     e.preventDefault();
 

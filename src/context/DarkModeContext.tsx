@@ -1,20 +1,23 @@
 import { createContext, useContext, useEffect } from "react";
 
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
+import { DarkModeContextType } from "../lib/types";
 
 // Creating Context
-const DarkModeContext = createContext();
+const DarkModeContext = createContext<DarkModeContextType | undefined>(
+  undefined
+);
 
-function DarkModeProvider({ children }) {
+function DarkModeProvider({ children }: { children: React.ReactNode }) {
   // Getting the data from local storage about dark mode status
   const [isDarkMode, setIsDarkMode] = useLocalStorageState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches,
+    window.matchMedia("(prefers-color-scheme: dark)").matches.toString(),
     "isDarkMode"
   );
 
   // Custom toggle function
   function toggleDarkMode() {
-    setIsDarkMode((isDark) => !isDark);
+    setIsDarkMode((isDark: boolean) => !isDark);
   }
 
   // useEffect that changes the DOM each time the app's theme is changed

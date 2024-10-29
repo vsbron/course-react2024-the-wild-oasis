@@ -30,6 +30,6 @@
     "incremental": true,
     "plugins": [{ "name": "next" }]
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/context/DarkModeContext.jsx", "src/features/authentication/LoginForm.jsx", "src/features/bookings/BookingDetail.jsx", "src/features/bookings/BookingTable.jsx", "src/features/cabins/AddCabin.jsx", "src/features/cabins/CabinTable.jsx"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
