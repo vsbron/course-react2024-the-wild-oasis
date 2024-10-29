@@ -16,7 +16,8 @@ export function useCreateCabin() {
       // Invalidating "cabin" query
       queryClient.invalidateQueries({ queryKey: ["cabins"] });
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err: unknown) =>
+      toast.error(err instanceof Error ? err.message : String(err)),
   });
 
   return { isCreating, createCabin };
