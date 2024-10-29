@@ -65,3 +65,11 @@ export type DarkModeContextType = {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
 };
+
+// FORMS
+export type SignupFormData = {
+  fullName: string;
+  email: string;
+  password: string;
+  passwordConfirm: string;
+};

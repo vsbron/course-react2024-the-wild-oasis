@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
+
+import { useSignUp } from "./useSignup";
+import { SignupFormData } from "../../lib/types";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
-import { useSignUp } from "./useSignup";
 import SpinnerMini from "../../ui/SpinnerMini";
 
 // Email regex: /\S+@\S+\.\S+/
@@ -13,11 +15,20 @@ function SignupForm() {
   const { signup, isLoading } = useSignUp();
 
   // Getting the register function, errors, values, submit handler and reset from useForm hook
-  const { register, formState, getValues, handleSubmit, reset } = useForm();
+  const { register, formState, getValues, handleSubmit, reset } =
+    useForm<SignupFormData>();
   const { errors } = formState;
 
   // On submit handler
-  function onSubmit({ fullName, email, password }) {
+  function onSubmit({
+    fullName,
+    email,
+    password,
+  }: {
+    fullName: string;
+    email: string;
+    password: string;
+  }) {
     signup({ fullName, email, password }, { onSettled: () => reset() });
   }
 
@@ -85,7 +96,7 @@ function SignupForm() {
           variation="secondary"
           type="reset"
           disabled={isLoading}
-          onClick={reset}
+          onClick={() => reset()}
         >
           Cancel
         </Button>
