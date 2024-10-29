@@ -68,7 +68,8 @@ export type PriceProps = {
 };
 
 // INTERFACES
-interface BookingObject {
+export interface BookingObject {
+  id: string;
   created_at: string;
   startDate: string;
   endDate: string;
@@ -80,6 +81,7 @@ interface BookingObject {
   hasBreakfast: boolean;
   observations: string;
   isPaid: boolean;
+  status: string;
   guests: {
     fullName: string;
     email: string;

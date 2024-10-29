@@ -7,6 +7,7 @@ import Table from "../../ui/Table";
 import Pagination from "../../ui/Pagination";
 
 import BookingRow from "./BookingRow";
+import { BookingObject } from "@/src/lib/types";
 
 function BookingTable() {
   // Getting the isLoading state and the data from Custom hook
@@ -16,7 +17,7 @@ function BookingTable() {
   if (isLoading) return <Spinner />;
 
   // Display "Empty message" if there's no booking
-  if (!bookings.length) return <Empty resourceName="bookings" />;
+  if (!bookings || !bookings.length) return <Empty resourceName="bookings" />;
 
   // Returned JSX
   return (
@@ -33,7 +34,7 @@ function BookingTable() {
 
         <Table.Body
           data={bookings}
-          render={(booking) => (
+          render={(booking: BookingObject) => (
             <BookingRow key={booking.id} booking={booking} />
           )}
         />

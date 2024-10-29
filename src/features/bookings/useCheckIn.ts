@@ -12,7 +12,17 @@ export function useCheckIn() {
   // Edit booking
   // Getting isLoading state and mutate function from useMutation hook
   const { isLoading: isCheckingIn, mutate: checkIn } = useMutation({
-    mutationFn: ({ bookingId, breakfast }) =>
+    mutationFn: ({
+      bookingId,
+      breakfast,
+    }: {
+      bookingId: string;
+      breakfast: {
+        hasBreakfast: boolean;
+        extrasPrice: number;
+        totalPrice: number;
+      };
+    }) =>
       updateBooking(bookingId, {
         status: "checked-in",
         isPaid: true,
@@ -21,10 +31,13 @@ export function useCheckIn() {
     onSuccess: (data) => {
       toast.success(`Booking #${data.id} successfully checked in`);
       // Invalidating all the active queries
-      queryClient.invalidateQueries({ active: true });
+      queryClient.invalidateQueries({
+        predicate: (query) => query.state.status === "success",
+      });
       navigate("/");
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err: unknown) =>
+      toast.error(err instanceof Error ? err.message : String(err)),
   });
 
   return { isCheckingIn, checkIn };

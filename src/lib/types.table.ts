@@ -1,6 +1,10 @@
 import { ReactNode } from "react";
+import { BookingObject } from "./types";
 
-export type BodyProps = { data: any; render: () => void };
+export type BodyProps = {
+  data: any;
+  render: (item: BookingObject) => React.JSX.Element;
+};
 export type CommonRowProps = {
   columns: string;
 };

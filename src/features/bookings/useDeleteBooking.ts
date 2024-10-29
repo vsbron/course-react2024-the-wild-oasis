@@ -16,7 +16,8 @@ export function useDeleteBooking() {
       // Invalidating all the active queries
       queryClient.invalidateQueries({ queryKey: ["bookings"] });
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err: unknown) =>
+      toast.error(err instanceof Error ? err.message : String(err)),
   });
 
   return { isDeleting, deleteBooking };

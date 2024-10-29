@@ -44,7 +44,7 @@ export function useBookings() {
   });
 
   //// PRE-FETCHING
-  const pageCount = Math.ceil(count / PAGE_SIZE);
+  const pageCount = Math.ceil((count ?? 1) / PAGE_SIZE);
 
   // Adding the query, but with increased page number (if not on the last page)
   page < pageCount &&
