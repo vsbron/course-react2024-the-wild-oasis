@@ -12,7 +12,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install ruby-full
-          gem install github-linguist
+          gem install github-linguist --user-install
       - name: Run Linguist to analyze languages
         run: |
           github-linguist
