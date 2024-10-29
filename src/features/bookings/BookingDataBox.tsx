@@ -7,6 +7,7 @@ import {
   HiOutlineHomeModern,
 } from "react-icons/hi2";
 
+import { BookingDataBoxProps, PriceProps } from "../../lib/types";
 import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers";
 
 import DataItem from "../../ui/DataItem";
@@ -68,7 +69,7 @@ const Guest = styled.div`
   }
 `;
 
-const Price = styled.div`
+const Price = styled.div<PriceProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,7 +103,7 @@ const Footer = styled.footer`
 `;
 
 // A purely presentational component
-function BookingDataBox({ booking }) {
+function BookingDataBox({ booking }: BookingDataBoxProps) {
   // Destructuring booking prop
   const {
     created_at,

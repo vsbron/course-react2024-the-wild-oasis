@@ -42,8 +42,10 @@ function BookingDetail() {
   // Getting the current status form the booking
   const { status, id } = booking;
 
+  // Define possible values for `status`
+  type Status = "unconfirmed" | "checked-in" | "checked-out";
   // List of statues and their colors
-  const statusToTagName = {
+  const statusToTagName: Record<Status, string> = {
     unconfirmed: "blue",
     "checked-in": "green",
     "checked-out": "silver",
@@ -55,7 +57,9 @@ function BookingDetail() {
       <Row type="horizontal">
         <HeadingGroup>
           <Heading as="h1">Booking #{id}</Heading>
-          <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
+          <Tag type={statusToTagName[status as Status]}>
+            {status.replace("-", " ")}
+          </Tag>
         </HeadingGroup>
         <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
       </Row>
@@ -80,7 +84,7 @@ function BookingDetail() {
             </Button>
           )}
 
-          {/* Delete button with which is part of the Modal coponent also */}
+          {/* Delete button with which is part of the Modal component also */}
           <Modal.Open opens="delete">
             <Button variation="danger" icon={<HiTrash />}>
               Delete Booking

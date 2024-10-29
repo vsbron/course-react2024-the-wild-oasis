@@ -75,9 +75,9 @@ export async function updateCurrentUser({
   fullName,
   avatar,
 }: {
-  fullName: string;
-  avatar: string;
-  password: string;
+  fullName?: string;
+  avatar?: string;
+  password?: string;
 }) {
   // 1. Update Password or Full Name
 

@@ -6,6 +6,7 @@ export type ButtonProps = {
   variation?: "primary" | "secondary" | "danger";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
+  icon?: ReactNode;
 };
 export type ButtonIconProps = {
   onClick?: () => void;
@@ -18,8 +19,14 @@ export type CheckboxProps = {
   id: string;
   children: ReactNode;
 };
+export type ConfirmDeleteProps = {
+  resourceName: string;
+  onConfirm: () => void;
+  disabled: boolean;
+  onCloseModal?: () => void;
+};
 export type DataItemProps = {
-  icon: string;
+  icon: ReactNode;
   label: string;
   children: ReactNode;
 };
@@ -50,11 +57,38 @@ export type SortByProps = { options: OptionsObject[] };
 export type TagProps = { type: string };
 
 // FEATURES
+export type BookingDataBoxProps = {
+  booking: BookingObject;
+};
 export type CheckoutButtonProps = {
   bookingId: string;
 };
+export type PriceProps = {
+  isPaid: boolean;
+};
 
 // INTERFACES
+interface BookingObject {
+  created_at: string;
+  startDate: string;
+  endDate: string;
+  numNights: number;
+  numGuests: number;
+  cabinPrice: number;
+  extrasPrice: number;
+  totalPrice: number;
+  hasBreakfast: boolean;
+  observations: string;
+  isPaid: boolean;
+  guests: {
+    fullName: string;
+    email: string;
+    country: string;
+    countryFlag: string;
+    nationalID: string;
+  };
+  cabins: { name: string };
+}
 interface OptionsObject {
   label: string;
   value: string;

@@ -18,7 +18,7 @@ function UpdateUserDataForm() {
     },
   } = useUser();
 
-  // Intiating State variables
+  // Initiating State variables
   const [fullName, setFullName] = useState(currentFullName);
   const [avatar, setAvatar] = useState(null);
 
