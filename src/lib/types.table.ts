@@ -11,7 +11,7 @@ export type CommonRowProps = {
 export type HeaderProps = {
   children: ReactNode;
 };
-export type RowProps = { children: ReactNode };
+export type RowProps = { children: ReactNode; columns?: string };
 export type TableProps = {
   columns: string;
   children: React.ReactNode;

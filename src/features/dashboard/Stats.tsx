@@ -5,22 +5,29 @@ import {
   HiOutlineChartBar,
 } from "react-icons/hi2";
 
-import Stat from "./Stat";
+import { StatsProps } from "../../lib/types";
 import { formatCurrency } from "../../utils/helpers";
+import Stat from "./Stat";
 
-function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
+function Stats({ bookings, confirmedStays, numDays, cabinCount }: StatsProps) {
   // 1. Calculating the number of bookings
   const numBookings = bookings.length;
 
   // 2. Calculating the amount of money from all the bookings
-  const sales = bookings.reduce((acc, cur) => acc + cur.totalPrice, 0);
+  const sales = bookings.reduce(
+    (acc: number, cur: { totalPrice: number }) => acc + cur.totalPrice,
+    0
+  );
 
   // 3. Calculate how many check-ins there were in chosen period
   const checkIns = confirmedStays.length;
 
   // 4. Calculating the occupation rate
   const occupation =
-    confirmedStays.reduce((acc, cur) => acc + cur.numNights, 0) /
+    confirmedStays.reduce(
+      (acc: number, cur: { numNights: number }) => acc + cur.numNights,
+      0
+    ) /
     (numDays * cabinCount);
 
   // Returned JSX
@@ -30,7 +37,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
         title="Bookings"
         color="blue"
         icon={<HiOutlineBriefcase />}
-        value={numBookings}
+        value={String(numBookings)}
       />
       <Stat
         title="Sales"
@@ -42,7 +49,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
         title="Check-ins"
         color="indigo"
         icon={<HiOutlineCalendarDays />}
-        value={checkIns}
+        value={String(checkIns)}
       />
       <Stat
         title="Occupancy rate"

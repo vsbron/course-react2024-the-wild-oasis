@@ -40,7 +40,6 @@ export type FormRowProps = {
   children: ReactNode;
 };
 export type HeadingProps = { as: "h1" | "h2" | "h3" | "h4" };
-export type PaginationProps = { count: number };
 export type ProtectedRouteProps = { children: ReactNode };
 export type RowProps = {
   type?: "vertical" | "horizontal";
@@ -65,6 +64,18 @@ export type CheckoutButtonProps = {
 };
 export type PriceProps = {
   isPaid: boolean;
+};
+export type StatProps = {
+  icon: ReactNode;
+  title: string;
+  value: string;
+  color: string;
+};
+export type StatsProps = {
+  bookings: BookingObject[];
+  confirmedStays: BookingObject[];
+  numDays: number;
+  cabinCount: number;
 };
 export type TodayActivityProps = {
   activity: BookingObject;
