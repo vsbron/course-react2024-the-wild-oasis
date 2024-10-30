@@ -16,6 +16,9 @@ function CabinTable() {
   // Getting the state from the URL
   const [searchParams] = useSearchParams();
 
+  // Guard clause
+  if (!cabins) return <div>No cabins found</div>;
+
   // Guard clause, if data is still loading display Loading spinner
   if (isLoading) return <Spinner />;
 

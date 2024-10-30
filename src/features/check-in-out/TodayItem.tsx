@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Button from "../../ui/Button";
 import { Flag } from "../../ui/Flag";
 import Tag from "../../ui/Tag";
+import { TodayActivityProps } from "@/src/lib/types";
 
 const StyledTodayItem = styled.li`
   display: grid;
@@ -26,7 +27,7 @@ const Guest = styled.div`
   font-weight: 500;
 `;
 
-function TodayItem({ activity }) {
+function TodayItem({ activity }: TodayActivityProps) {
   // Destructuring activity data
   const { id, status, guests, numNights } = activity;
 

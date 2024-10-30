@@ -15,7 +15,7 @@ export type ButtonIconProps = {
 export type CheckboxProps = {
   checked: boolean;
   onChange: () => void;
-  disabled: boolean;
+  disabled?: boolean;
   id: string;
   children: ReactNode;
 };
@@ -65,6 +65,9 @@ export type CheckoutButtonProps = {
 };
 export type PriceProps = {
   isPaid: boolean;
+};
+export type TodayActivityProps = {
+  activity: BookingObject;
 };
 
 // INTERFACES

@@ -18,9 +18,9 @@ export function useCheckIn() {
     }: {
       bookingId: string;
       breakfast: {
-        hasBreakfast: boolean;
-        extrasPrice: number;
-        totalPrice: number;
+        hasBreakfast?: boolean;
+        extrasPrice?: number;
+        totalPrice?: number;
       };
     }) =>
       updateBooking(bookingId, {

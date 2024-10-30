@@ -34,7 +34,7 @@ function CheckInBooking() {
   const { booking, isLoading } = useBooking();
 
   // Getting the settings data from custom hook
-  const { settings, isLoadingSettings } = useSettings();
+  const { settings, isLoading: isLoadingSettings } = useSettings();
 
   // Use effect for changing the state
   useEffect(() => {
