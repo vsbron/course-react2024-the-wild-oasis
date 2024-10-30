@@ -1,64 +1,64 @@
-# The Wild Oasis
+# The Wild Oasis [Server]
 
-Internal React-app for the boutique hotel to manage bookings, cabins and guests.
-Please, click "Upload ALL" button on the bottom left before using.
+**The Wild Oasis** is an internal React-based app designed for a boutique hotel to manage bookings, cabins, and guest information seamlessly.
+
+> **Note:** Please click the "Upload ALL" button on the bottom left before using the app.
 
 ## Features
 
-- Header with user's Name and Avatar;
-- Sidebar Navigation;
-- Settings page where the app can be adjusted;
-- Dark mode for the app (Can be toggled in Header);
-- Main Dashboard page;
-- About the App page;
+### Personalized Interface
 
-### Dashboard
+- **Header** with user name and avatar.
+- **Sidebar Navigation** for easy access to app sections.
+- **Settings** page to adjust app preferences.
+- **Dark Mode** toggle in the header for comfortable viewing.
 
-- Main dashboard page with stats and charts;
-- Basic stats for number of bookings, stays, sales and occupancy rate;
-- Today's activity list showing guests that are about to check-in or check-out on the current day;
-- Chart graph for total sales & extra sales;
-- Chart pie of Stay durations;
-- All the data can be filtered;
+### Dashboard Overview
 
-### Users
+- **Main Dashboard** with essential statistics and charts.
+- **Today's Activity List** for guests checking in and out.
+- Filterable data with visualized charts for insights on:
+  - Total and extra sales.
+  - Stay durations.
+  - Occupancy rate, sales, and booking stats.
 
-- App is restricted to the unauthorized users;
-- Users can log in to the app at Login page (dummy@email.com / 123123);
-- Users can edit their name, upload a new avatar and update the password;
-- New users can be created by authorized users at Users page;
-- User can log out from the app using Logout button in the Header;
+### User Management
 
-### Bookings
+- Restricted access for unauthorized users.
+- **Login** for authorized access (use credentials: `dummy@email.com / 123123`).
+- Editable user profiles (name, avatar, password).
+- **New User Creation** by authorized users.
+- **Logout** button for easy session management.
 
-- List of all recorded bookings;
-- Booking page with all the details;
-- Check-in page where the booking can be confirmed and checked in (+also Breakfast can be added for additional price);
-- Check-out option from the main list and Booking page;
-- Booking can be deleted from the Bookings list or Booking page;
-- All the bookings data can be filtered and sorted;
+### Bookings Management
 
-### Cabins
+- List and manage all bookings.
+- **Check-in** page for confirming bookings and adding extras (e.g., breakfast).
+- **Check-out** option accessible in the main list and individual bookings.
+- **Delete Booking** option from the list or specific booking page.
+- Sort and filter bookings data for easy access.
 
-- List of all available cabins;
-- New cabins can be added to the list;
-- Existing cabins can be duplicated, edited or deleted entirely;
-- Custom images can be uploaded while adding/editing a Cabin;
-- All the cabins data can be filtered and sorted;
+### Cabin Management
 
-## Details
+- View, add, edit, and delete cabins.
+- **Custom Image Upload** for each cabin.
+- Cabin data can be sorted and filtered for optimal navigation.
 
-- App is written as React ASP with TypeScript;
-- Routes are handled with React Router library;
-- Styles are handled with Styled Components;
-- State management is handled by React Query;
-- Adding/modifying/deleting cabins and bookings changes the remote state;
-- Database is stored at Supabase service;
-- Form handled and validated with React Hook Form;
-- Data lists are divided and prefetched by React Query library;
-- Add/Edit/Delete Cabin form is built as a Modal using Compound Component Pattern;
-- React Error Boundary was added to catch render errors;
-- The scheme theme initially loads based on user's OS theme (Light/Dark);
+## Technical Overview
+
+- **Framework**: Built with **React** and partial **TypeScript** support for type safety.
+- **Routing**: Managed with **React Router**.
+- **Styling**: **Styled Components** for maintainable, dynamic styles.
+- **State Management**: Powered by **React Query** for remote data handling.
+- **Database**: Hosted on **Supabase**.
+- **Forms**: Controlled and validated with **React Hook Form**.
+- **Optimized Lists**: Paginated and pre-fetched lists through React Query.
+- **Error Handling**: Implemented with **React Error Boundary**.
+- **Theme Mode**: Initial load matches user OS theme (Light/Dark).
+
+## Additional Details
+
+- **Cabin Management UI**: Built as a modal using the Compound Component pattern for flexibility and reusability.
 
 ## Live version
 
