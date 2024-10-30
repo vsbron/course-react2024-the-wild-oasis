@@ -34,79 +34,90 @@ function About() {
 
       <Row>
         <Paragraph>
-          Internal React-app for the boutique hotel to manage bookings, cabins
-          and guests.
-          <br />- Please, click "Upload ALL" button on the bottom left{" "}
-          <u>before</u> using.
+          <b>The Wild Oasis</b> is an internal React-based app designed for a
+          boutique hotel to manage bookings, cabins, and guest information
+          seamlessly.
+          <br />
+          <u>Note:</u> Please click the "Upload ALL" button on the bottom left
+          before using the app.
         </Paragraph>
 
-        <Heading as="h2">Features:</Heading>
-        <List>
-          <li>Header with user's Name and Avatar;</li>
-          <li>
-            Sidebar Navigation; Settings page where the app can be adjusted;
-          </li>
-          <li>Dark mode for the app (Can be toggled in Header);</li>
-          <li>Main Dashboard page;</li>
-          <li>About the App page;</li>
-        </List>
+        <Heading as="h2">Features</Heading>
 
-        <Heading as="h3">Dashboard:</Heading>
+        <Heading as="h3">Personalized Interface</Heading>
         <List>
-          <li>Main dashboard page with stats and charts;</li>
           <li>
-            Basic stats for number of bookings, stays, sales and occupancy rate;
+            <b>Header</b> with user name and avatar.
           </li>
           <li>
-            Today's activity list showing guests that are about to check-in or
-            check-out on the current day;
-          </li>
-          <li>Chart graph for total sales & extra sales;</li>
-          <li>Chart pie of Stay durations;</li>
-          <li>All the data can be filtered;</li>
-        </List>
-
-        <Heading as="h3">Users:</Heading>
-        <List>
-          <li>App is restricted to the unauthorized users;</li>
-          <li>
-            Users can log in to the app at Login page (dummy@email.com /
-            123123);
+            <b>Sidebar Navigation</b> for easy access to app sections.
           </li>
           <li>
-            Users can edit their name, upload a new avatar and update the
-            password;
+            <b>Settings</b> page to adjust app preferences.
           </li>
-          <li>New users can be created by authorized users at Users page;</li>
           <li>
-            User can log out from the app using Logout button in the Header;
+            <b>Dark Mode</b> toggle in the header for comfortable viewing.
           </li>
         </List>
 
-        <Heading as="h3">Bookings:</Heading>
+        <Heading as="h3">Dashboard Overview</Heading>
         <List>
-          <li>List of all recorded bookings;</li>
-          <li>Booking page with all the details;</li>
           <li>
-            Check-in page where the booking can be confirmed and checked in
-            (+also Breakfast can be added for additional price);
+            <b>Main Dashboard</b> with essential statistics and charts.
           </li>
-          <li>Check-out option from the main list and Booking page;</li>
           <li>
-            Booking can be deleted from the Bookings list or Booking page;
+            <b>Today's Activity List</b> for guests checking in and out.
           </li>
-          <li>All the bookings data can be filtered and sorted;</li>
+          <li>
+            Filterable data with visualized charts for insights on:
+            <ul>
+              <li>Total and extra sales.</li>
+              <li>Stay durations.</li>
+              <li>Occupancy rate, sales, and booking stats.</li>
+            </ul>
+          </li>
         </List>
 
-        <Heading as="h3">Cabins:</Heading>
+        <Heading as="h3">User Management</Heading>
         <List>
-          <li>List of all available cabins;</li>
-          <li>New cabins can be added to the list;</li>
+          <li>Restricted access for unauthorized users.</li>
           <li>
-            Existing cabins can be duplicated, edited or deleted entirely;
+            <b>Login</b> for authorized access (use credentials:{" "}
+            <code>dummy@email.com / 123123</code>).
           </li>
-          <li>Custom images can be uploaded while adding/editing a Cabin;</li>
-          <li>All the cabins data can be filtered and sorted;</li>
+          <li>Editable user profiles (name, avatar, password).</li>
+          <li>
+            <b>New User Creation</b> by authorized users.
+          </li>
+          <li>
+            <b>Logout</b> button for easy session management.
+          </li>
+        </List>
+
+        <Heading as="h3">Bookings Management</Heading>
+        <List>
+          <li>List and manage all bookings.</li>
+          <li>
+            <b>Check-in</b> page for confirming bookings and adding extras
+            (e.g., breakfast).
+          </li>
+          <li>
+            <b>Check-out</b> option accessible in the main list and individual
+            bookings.
+          </li>
+          <li>
+            <b>Delete Booking</b> option from the list or specific booking page.
+          </li>
+          <li>Sort and filter bookings data for easy access.</li>
+        </List>
+
+        <Heading as="h3">Cabin Management</Heading>
+        <List>
+          <li>View, add, edit, and delete cabins.</li>
+          <li>
+            <b>Custom Image Upload</b> for each cabin.
+          </li>
+          <li>Cabin data can be sorted and filtered for optimal navigation.</li>
         </List>
       </Row>
 

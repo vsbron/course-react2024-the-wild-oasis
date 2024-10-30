@@ -2,6 +2,8 @@ import styled, { css } from "styled-components";
 
 import { FormProps } from "../lib/types";
 
+import { device } from "../styles/GlobalStyles";
+
 const Form = styled.form<FormProps>`
   ${(props) =>
     props.type === "regular" &&
@@ -12,6 +14,10 @@ const Form = styled.form<FormProps>`
       background-color: var(--color-grey-0);
       border: 1px solid var(--color-grey-100);
       border-radius: var(--border-radius-md);
+
+      @media ${device.mobile} {
+        padding: 2rem 3rem;
+      }
     `}
 
   ${(props) =>

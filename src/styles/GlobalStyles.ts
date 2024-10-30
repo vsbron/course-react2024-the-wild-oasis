@@ -1,5 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
+// Responsive breakpoints
+const size = {
+  mobile: "33.375em", // 550px
+};
+
+export const device = {
+  mobile: `(max-width: ${size.mobile})`,
+};
+
 const GlobalStyles = createGlobalStyle`
 :root {
   &, &.light-mode {
